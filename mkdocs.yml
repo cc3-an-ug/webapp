@@ -1,0 +1,65 @@
+# General Info
+site_name: Estructura de Máquinas
+site_description: Grandes Ideas en Arquitectura de Computadoras
+site_author: CC-3
+site_url: https://cc3-an.github.io/
+copyright: Copyright &copy; 2023 CC3 AN
+
+# Theme Configuration
+theme:
+  favicon: assets/img/common/logo.png
+  logo: assets/img/common/logo.png
+  name: material
+  language: es
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - search.highlight
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - meta
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - pymdownx.highlight:
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+
+# TOC
+nav:
+  - Inicio: index.md
+  - Laboratorios:
+      - "00: Git": labs/lab00.md
+      - "01: C y GDB": labs/lab01.md
+      - "02: C Avanzado": labs/lab02.md
+      - "03: RISC-V": labs/lab03.md
+      - "04: Logisim": labs/lab05.md
+      - "05: Logisim Avanzado": labs/lab06.md
+      - "06: Logisim ALU": labs/lab07.md
+  - Proyectos:
+      - "01: C y RISC-V": projects/pj01.md
+      - "02: CPU": projects/pj02.md
+  - Tutoriales:
+      - "Autograders": tutorials/autograders.md
+      - "Máquina Virtual": tutorials/install.md
