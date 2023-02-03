@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-sudo rm -rf site
-docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build
-sudo chown -R $USER site
