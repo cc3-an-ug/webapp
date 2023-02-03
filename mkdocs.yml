@@ -45,21 +45,14 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg # TOC
 
-# TOC
+
 nav:
   - Inicio: index.md
   - Laboratorios:
       - "00: Git": labs/lab00.md
-      - "01: C y GDB": labs/lab01.md
-      - "02: C Avanzado": labs/lab02.md
-      - "03: RISC-V": labs/lab03.md
-      - "04: Logisim": labs/lab05.md
-      - "05: Logisim Avanzado": labs/lab06.md
-      - "06: Logisim ALU": labs/lab07.md
-  - Proyectos:
-      - "01: C y RISC-V": projects/pj01.md
-      - "02: CPU": projects/pj02.md
   - Tutoriales:
-      - "Autograders": tutorials/autograders.md
       - "Máquina Virtual": tutorials/install.md

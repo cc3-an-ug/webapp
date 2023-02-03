@@ -22,15 +22,17 @@ Naveguen a la siguiente página: [github.com](https://github.com/). Si no tienen
 
 ### Preparación
 
-Visiten este [link](https://classroom.github.com/a/1Ix7PBBh). Aquí encontrarán todos los archivos necesarios para completar este laboratorio. En esta página, encontrarán un botón que dice "Accept this assignment". Al presionar este botón, se creará automáticamente un repositorio en Github llamado `https://www.github.com/cc3-an/2022-lab00-git-<USUARIO>`. Noten que el "dueño" de este repositorio es un usuario llamado `cc3-an`, y el usuario de ustedes es únicamente el sufijo. De esta forma, nos encargamos de tener acceso siempre a su código.
+Visiten este [link](https://classroom.github.com/a/M0kENuj1). Aquí encontrarán todos los archivos necesarios para completar este laboratorio. En esta página, encontrarán un botón que dice "Accept this assignment". Al presionar este botón, se creará automáticamente un repositorio en Github llamado `https://www.github.com/cc3-an/2023-lab-00-git-<USUARIO>`. Noten que el "dueño" de este repositorio es un usuario llamado `cc3-an`, y el usuario de ustedes es únicamente el sufijo del nombre del repositorio. De esta forma, nos encargamos de tener acceso siempre a su código.
 
 **Nota**: Sepan de una vez que, si encontramos plagio en sus laboratorios, su nota será AUTOMÁTICAMENTE 0, sin posibilidad de cambiarla. De repetirse nuevamente este acontecimiento, el staff del curso organizará una reunión con ustedes y sus directores de carrera para contarles lo ocurrido y sancionarlos conforme al reglamento de la universidad.
 
 Después de realizar esto, en la máquina virtual (o sus propias computadoras) abran una terminal en el directorio que prefieran, y ejecuten el siguiente comando:
 
 ```sh
-git clone https://github.com/cc3-an/2022-lab00-git-<SU USUARIO DE GITHUB>
+git clone https://www.github.com/cc3-an/2023-lab-00-git-<USUARIO>
 ```
+
+> Recuerden reemplazar `<USUARIO>` con su nombre de usuario de GitHub.
 
 esto descargará en el directorio que escogieron todos los archivos base para este laboratorio.
 
@@ -47,6 +49,68 @@ git config --global user.name "NOMBRE"
 git config --global user.email "CORREO"
 ```
 
+Ahora vamos a configurar git para que sepa que editor de texto vamos a utilizar. Para esto, ejecuten el siguiente comando:
+
+```shell
+git config --global core.editor "nano"
+```
+
+> Si prefieren utilizar otro editor de texto, pueden cambiar "nano" por el nombre del editor que prefieran. Si no saben cual es el nombre del editor que prefieren, pueden ejecutar el comando `git config --global core.editor` para ver cual es el editor que git está utilizando.
+
+Ahora vamos a configurar git para que utilice el branch `main` por defecto. Para esto, ejecuten el siguiente comando:
+
+```shell
+
+git config --global init.defaultBranch main
+```
+
+Por último, vamos a configurar git para que sepa que vamos a utilizar el protocolo SSH para conectarnos a GitHub (más información en el siguiente [link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)). Para esto, ejecuten el siguiente comando:
+
+```shell
+ssh-keygen -t ed25519 -C "<correo>"
+```
+
+> Recuerden reemplazar `<correo>` con la dirección de correo que utilizarón para registrarse en GitHub.
+
+Esto creará una llave SSH en su computadora. Ahora, ejecuten el siguiente comando:
+
+```shell
+
+ssh-add ~/.ssh/id_ed25519
+```
+
+Dirijanse a la siguiente página: [https://github.com/settings/ssh/new](https://github.com/settings/ssh/new) y vamos a copiar nuestra llave SSH. Para esto, ejecuten el siguiente comando:
+
+```shell
+cat ~/.ssh/id_ed25519.pub
+```
+
+Y peguenlo en la pagina de GitHub.
+
+![ssh](/assets/img/common/ssh.png)
+
+Ahora, vamos a probar que todo está funcionando correctamente. Para esto, ejecuten el siguiente comando:
+
+```shell
+ssh -T git@github.com
+```
+
+Puede que les salga un mensaje como el siguiente:
+
+```shell
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+> Are you sure you want to continue connecting (yes/no)?
+```
+
+Si es así, escriban `yes` y presionen enter. Al finalizar les debería aparecer un mensaje como el siguiente:
+
+```shell
+Hi <USUARIO>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+> `<USUARIO>` es su nombre de usuario de GitHub.
+
 ## Ejercicio 2: git y Remotes
 
 Primero, algunas definiciones rápidas:
@@ -60,7 +124,7 @@ Primero, algunas definiciones rápidas:
 A lo largo de este curso, estarán trabajando en dos diferentes "_computadoras_" que generalmente tendran diferentes versiones de su código en algún tiempo. Estas dos son: su computadora personal y su remote de GitHub (sus repositorios privados de GitHub). Es esencial que entiendan la diferencia entre estas dos y como pueden compartir código entre ellas.
 
 1. Su **computadora personal** es la que les servirá para hacer todo el trabajo (laboratorios y proyectos) que necesiten hacer durante el curso, nada nuevo aquí.
-2. Su cuenta de GitHub y los **remotes** les servirán para muchos propósitos, pero la principal razón es para tener un backup o copia de respaldo, de tal manera que si algo malo le sucede a sus computadoras (esperamos no <i class="em em-wink"></i>), puedan recuperar su código en vez de empezar de cero nuevamente. Conceptualmente, pueden pensar en los remotes de GitHub como otra computadora que únicamente almacena su código y nada más. Siempre deben subir sus cambios a GitHub haciendo _push_ al remote (es decir actualizando los archivos en GitHub) y también pueden descargar los cambios de GitHub haciendo _pull_ (actualizando los archivos en su computadora personal).
+2. Su cuenta de GitHub y los **remotes** les servirán para muchos propósitos, pero la principal razón es para tener un backup o copia de respaldo, de tal manera que si algo malo le sucede a sus computadoras (esperamos no :v:), puedan recuperar su código en vez de empezar de cero nuevamente. Conceptualmente, pueden pensar en los remotes de GitHub como otra computadora que únicamente almacena su código y nada más. Siempre deben subir sus cambios a GitHub haciendo _push_ al remote (es decir actualizando los archivos en GitHub) y también pueden descargar los cambios de GitHub haciendo _pull_ (actualizando los archivos en su computadora personal).
 
 ### Haciendo push hacia GitHub
 
@@ -150,7 +214,7 @@ Si ya contestaron todo y creen que está correcto pueden agregar los cambios, ha
 ```shell
 git add ex3.txt
 git commit -m "ex3 complete"
-git push -u origin master
+git push -u origin main
 ```
 
 ## Ejercicio 4: 1,000 billetes de $1
@@ -169,9 +233,11 @@ Si ya contestaron todo y creen que está correcto pueden agregar los cambios, ha
 ```shell
 git add ex4.txt
 git commit -m "ex4 complete"
-git push -u origin master
+git push -u origin main
 ```
 
 ## Entrega y calificación
 
-Por favor subir el link de su repositorio al **GES**.
+Por favor subir el link de su repositorio al **GES**. Siempre es necesario que suban su repositorio al GES, incluso si no completaron todos los ejercicios, de lo contrario la nota será de 0 puntos.
+
+La calificación de este laboratorio será de 0 a 100 puntos, donde 100 puntos es la calificación máxima. La calificación se basará en la cantidad de ejercicios completados. Si tienen alguna duda sobre la calificación, por favor envíen un correo a los auxiliares.
