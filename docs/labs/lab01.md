@@ -10,15 +10,17 @@
 
 ## Preparación
 
-Visiten este [link](https://classroom.github.com/a/Hp7ReI2W). Aquí encontrarán todos los archivos necesarios para completar este lab. En esta página, encontrarán un botón que dice "Accept assignment". Al presionar este botón, se creará automáticamente un repositorio en Github llamado `www.github.com/cc3-an/2022-lab-01-c-gdb-USUARIO`. Noten que el "dueño" de este repositorio es un usuario llamado `cc3-an`, y el usuario de ustedes es únicamente el sufijo del nombre del repo. De esta forma, nos encargamos de tener acceso siempre a su código, en caso existan copias o cualquier otro tipo de trampa. Sepan de una vez que, si encontramos plagio o cualquier otro tipo de trampa en sus laboratorios, su nota será AUTOMÁTICAMENTE 0, sin posibilidad de cambiarla. De repetirse nuevamente este acontecimiento, el staff del curso organizará una reunión con ustedes y sus directores de carrera para contarles lo ocurrido y sancionarlos conforme al reglamento de la universidad.
+Visiten este [link](https://classroom.github.com/a/gQGq8DUA). Aquí encontrarán todos los archivos necesarios para completar este lab. En esta página, encontrarán un botón que dice "Accept assignment". Al presionar este botón, se creará automáticamente un repositorio en Github llamado `www.github.com/cc3-an/2023-lab-01-c-gdb-USUARIO`. Noten que el "dueño" de este repositorio es un usuario llamado `cc3-an`, y el usuario de ustedes es únicamente el sufijo del nombre del repo. De esta forma, nos encargamos de tener acceso siempre a su código, en caso existan copias o cualquier otro tipo de trampa. Sepan de una vez que, si encontramos plagio o cualquier otro tipo de trampa en sus laboratorios, su nota será AUTOMÁTICAMENTE 0, sin posibilidad de cambiarla. De repetirse nuevamente este acontecimiento, el staff del curso organizará una reunión con ustedes y sus directores de carrera para contarles lo ocurrido y sancionarlos conforme al reglamento de la universidad.
 
 Después de realizar esto, en la máquina virtual (o sus propias computadoras) abran una terminal en el directorio que prefieran, y ejecuten el siguiente comando:
 
 ```shell
-git clone https://github.com/cc3-an/2022-lab-01-c-gdb-<USUARIO DE GITHUB AQUI>
+git clone https://github.com/cc3-an/2023-lab-01-c-gdb-<USUARIO DE GITHUB AQUI>
 ```
 
 Esto descargará en el directorio que escogieron todos los archivos base para este laboratorio. Un `clone` solo lo hacemos la primera vez que vamos a bajar el codigo de un repositorio a nuestra maquina. Nunca bajen el zip que Github les ofrece, por favor, eso solo nos va a causar problemas.
+
+Recuerden que es necesario que hayan leído el tutorial de [git y GitHub](https://cc3-an.github.io/tutorials/git/) que se encuentra en la página del curso, así como también el tutorial del [autograder](https://cc3-an.github.io/tutorials/autograder/).
 
 ## Compilando y ejecutando un programa de C
 
@@ -34,7 +36,7 @@ Esto compila el archivo `program.c` y crea un archivo ejecutable llamado `a.out`
 ./a.out
 ```
 
-El archivo ejecutable es `a.out`, así que, ¿qué rayos es eso de punto y diagonal? La respuesta: cuando quieren ejecutar un ejecutable, es necesario preponer una ruta de archivo para distinguirlo de un comando como `python` (no se utiliza `./python`). El punto se refiere al "directorio actual". De paso, dos puntos (..) se referirían al directorio que está un nivel arriba.
+El archivo ejecutable es `a.out`, así que, ¿qué es eso de punto y diagonal? La respuesta: cuando quieren ejecutar un ejecutable, es necesario preponer una ruta de archivo para distinguirlo de un comando como `python` (no se utiliza `./python`). El punto se refiere al "directorio actual". De paso, dos puntos (..) se referirían al directorio que está un nivel arriba.
 
 `gcc` tiene varias opciones (o argumentos) de línea de comandos, los cuales les recomendamos explorar. En este laboratorio, vamos a estar usando solamente -o, que se usa para especificar el nombre del ejecutable que `gcc` genera. Usando -o, se utilizarían estos comandos para compilar `program.c` en un archivo llamado `program`, y ejecutarlo. Eso nos sirve si no queremos que todos nuestros archivos ejecutables se llamen `a.out`.
 
@@ -314,57 +316,88 @@ $ git push -u origin main
 
 Para finalizar, la fábula de [la tortuga y la liebre](http://read.gov/aesop/025.html) es relevante siempre, especialmente en este curso. Escribir sus programas en C a paso lento pero seguro (ayudándose de programas como CGDB) es lo que les hará ganar la carrera.
 
-## Entrega de laboratorio
+## Entrega y calificación
 
-A partir de este laboratorio contaremos con autograders, por lo que podrán conocer su nota de inmediato. Para poder utilizarlo debemos realizar una pequena instalación. [Guía de Instalación de Autograders](/tutorials/autograders).
+Por favor subir el link de su repositorio al **GES**. Siempre es necesario que suban su repositorio al GES, incluso si no completaron todos los ejercicios, de lo contrario la nota será de 0 puntos.
 
-Una vez esté instalado ustedes deberán iniciar sesión en la carpeta raiz del repositorio.
+La calificación de este laboratorio será de 0 a 100 puntos, donde 100 puntos es la calificación máxima. La calificación se basará en la cantidad de ejercicios completados. Si tienen alguna duda sobre la calificación, por favor envíen un correo a los auxiliares.
 
-```sh
-autograders --sign-in
+Para subir su laboratorio al autograder deben hacer lo siguiente, estando en la carpeta del laboratorio:
+
+```shell
+autograder assignment submit
 ```
 
-Y hacer submit
+Si por alguna razon les pide que ingresen el id de la asignación, pueden ingresar el siguiente id: **`bf955a5e-35fe-4408-b796-9eb3bf55cd63`**.
 
-```sh
-autograders --submit
+Una vez suban su laboratorio al autograder, les va a salir un mensaje como el siguiente:
+
+```shell
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Assignment | Submit
+
+✔ Got assignment info successfully!
+✔ Files zipped successfully!
+✔ Files uploaded successfully!
+✔ Assignment submitted successfully!
+
+╔══════════════╤══════════════════════════════════════╗
+║ Id           │ e58e7f1c-96ae-477a-8851-77ba16bf7443 ║
+╟──────────────┼──────────────────────────────────────╢
+║ Status       │ SUBMITTED                            ║
+╟──────────────┼──────────────────────────────────────╢
+║ Submitted At │ 10 Feb, 2023 06:18:21 pm             ║
+╚══════════════╧══════════════════════════════════════╝
 ```
 
-```sh
-╭ Autograders ╮
-│             │
-│   Submit    │
-│             │
-╰─────────────╯
+Para ver el estado de su laboratorio pueden hacer lo siguiente:
 
-✔ Files zipped
-✔ Submission created successfully.
+```shell
 
-Assignment:
+autograder submit last
+```
 
-╔═══════════╤══════════════════════════╗
-║ id        │ 61fcc9f510a10341e78bc4ac ║
-╟───────────┼──────────────────────────╢
-║ name      │ Lab 1 - C y GDB          ║
-╟───────────┼──────────────────────────╢
-║ createdAt │ 2022-02-04T06:38:45.587Z ║
-╟───────────┼──────────────────────────╢
-║ updatedAt │ 2022-02-04T06:38:45.587Z ║
-╚═══════════╧══════════════════════════╝
+Si ya está calificado, les va a salir un mensaje como el siguiente:
+
+```shell
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Submission | Last
+
+✔ Got submission info successfully!
+
+╔════════╤══════════════════════════════════════╗
+║ Id     │ a1f1f397-0e08-448a-86e6-aab8c47fff57 ║
+╟────────┼──────────────────────────────────────╢
+║ Grade  │ 100                                  ║
+╟────────┼──────────────────────────────────────╢
+║ Status │ GRADED                               ║
+╚════════╧══════════════════════════════════════╝
+
+Stdout:
+
+1. Eccentric
+
+...
+
+2. CGDB
+
+...
+
+3. LL Equal
+
+...
+
+4. LL Cycle
 
 ...
 ```
 
-Para ver el status de su ultimo submit:
-
-```sh
-autograders --get-last-submit
-```
-
-Para obtener el resultado con mejor nota pueden hacer lo siguiente:
-
-```sh
-autograders --get-best-submit
-```
-
-Felicidades! Termino su lab 1. Envie el link de su repo en el GES (el GES le permite enviar links, no pegue su link en un TXT u otro documento, es incómodo).
+Pueden subir su laboratorio **10** veces, pero solo se tomará en cuenta la entrega que tenga la calificación más alta. Si no les gusta la calificación que obtuvieron, pueden volver a subir su laboratorio hasta que obtengan la calificación que desean.

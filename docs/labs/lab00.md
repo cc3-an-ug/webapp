@@ -3,24 +3,13 @@
 ## Objetivos
 
 - Aprender git.
+- Ganarse unos puntos extra.
 - Crear una cuenta de GitHub.
 - Ganar más intuición para trabajar con números binarios.
 
-## Ejercicio 1: Cuenta de GitHub
+### Preparación
 
 Por favor lean las siguientes instrucciones cuidadosamente antes de seguir con el laboratorio. La mayor parte de los problemas que tienen los estudiantes durante este laboratorio se pueden prevenir siguiendo atentamente los pasos que se indican.
-
-Para este curso necesitaremos que utilicen **git**, un _sistema de control de versiones distribuido_. Los sistemas de control de versiones son las mejores herramientas para compartir y almacenar código a comparación de mandar correos con archivos adjuntos, utilizar memorias flash, o incluso compartir documentos mediante DropBox o Google Docs.
-
-Vamos a estar usando **GitHub** para tener repositorios privados en donde van a _almacenar_ su código remotamente. Si la oración anterior no les dijo nada, no se preocupen, vamos a guiarlos en el proceso más adelante. Pero primero, necesitan crear una cuenta de **GitHub**.
-
-¿Por qué GitHub? GitHub ahora permite a todas las cuentas gratuitas tener repositorios privados ilimitados con algunas limitaciones que no van a ser ningún problema para nosotros.
-
-### GitHub Onboarding
-
-Naveguen a la siguiente página: [github.com](https://github.com/). Si no tienen una cuenta de GitHub todavía, creen una en el siguiente [link](https://github.com/join/).
-
-### Preparación
 
 Visiten este [link](https://classroom.github.com/a/M0kENuj1). Aquí encontrarán todos los archivos necesarios para completar este laboratorio. En esta página, encontrarán un botón que dice "Accept this assignment". Al presionar este botón, se creará automáticamente un repositorio en Github llamado `https://www.github.com/cc3-an/2023-lab-00-git-<USUARIO>`. Noten que el "dueño" de este repositorio es un usuario llamado `cc3-an`, y el usuario de ustedes es únicamente el sufijo del nombre del repositorio. De esta forma, nos encargamos de tener acceso siempre a su código.
 
@@ -36,97 +25,13 @@ git clone https://www.github.com/cc3-an/2023-lab-00-git-<USUARIO>
 
 esto descargará en el directorio que escogieron todos los archivos base para este laboratorio.
 
-### Configurando git
+### Ejercicio 1: Tutorial
 
-Ahora que ya hemos creado nuestro repositorio, vamos a configurar git para que sepa quiénes son. Abran una terminal
-++ctrl+alt+t++ y ejecuten los siguientes comandos listados abajo, reemplazando **NOMBRE** con su nombre y apellido (entre comillas) y **CORREO** con la dirección de correo que utilizarón para registrarse en GitHub.
+Por favor lo primero que deben hacer es leer el tutorial de [git y GitHub](https://cc3-an.github.io/tutorials/git/) que se encuentra en la página del curso. Este tutorial les va a enseñar a utilizar git y GitHub para el resto del curso. Por favor leanlo con atención y sigan los pasos que se indican.
 
-```shell
-git config --global user.name "NOMBRE"
-```
+También es necesario que se lean el tutorial del [autograder](https://cc3-an.github.io/tutorials/autograder/) que se encuentra en la página del curso también. Este les va a enseñar a utilizar el autograder para los laboratorios. Por favor leanlo con atención y sigan los pasos que se indican.
 
-```shell
-git config --global user.email "CORREO"
-```
-
-Ahora vamos a configurar git para que sepa que editor de texto vamos a utilizar. Para esto, ejecuten el siguiente comando:
-
-```shell
-git config --global core.editor "nano"
-```
-
-> Si prefieren utilizar otro editor de texto, pueden cambiar "nano" por el nombre del editor que prefieran. Si no saben cual es el nombre del editor que prefieren, pueden ejecutar el comando `git config --global core.editor` para ver cual es el editor que git está utilizando.
-
-Ahora vamos a configurar git para que utilice el branch `main` por defecto. Para esto, ejecuten el siguiente comando:
-
-```shell
-
-git config --global init.defaultBranch main
-```
-
-Por último, vamos a configurar git para que sepa que vamos a utilizar el protocolo SSH para conectarnos a GitHub (más información en el siguiente [link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)). Para esto, ejecuten el siguiente comando:
-
-```shell
-ssh-keygen -t ed25519 -C "<correo>"
-```
-
-> Recuerden reemplazar `<correo>` con la dirección de correo que utilizarón para registrarse en GitHub.
-
-Esto creará una llave SSH en su computadora. Ahora, ejecuten el siguiente comando:
-
-```shell
-
-ssh-add ~/.ssh/id_ed25519
-```
-
-Dirijanse a la siguiente página: [https://github.com/settings/ssh/new](https://github.com/settings/ssh/new) y vamos a copiar nuestra llave SSH. Para esto, ejecuten el siguiente comando:
-
-```shell
-cat ~/.ssh/id_ed25519.pub
-```
-
-Y peguenlo en la pagina de GitHub.
-
-![ssh](/assets/img/common/ssh.png)
-
-Ahora, vamos a probar que todo está funcionando correctamente. Para esto, ejecuten el siguiente comando:
-
-```shell
-ssh -T git@github.com
-```
-
-Puede que les salga un mensaje como el siguiente:
-
-```shell
-> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
-> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-> Are you sure you want to continue connecting (yes/no)?
-```
-
-Si es así, escriban `yes` y presionen enter. Al finalizar les debería aparecer un mensaje como el siguiente:
-
-```shell
-Hi <USUARIO>! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-> `<USUARIO>` es su nombre de usuario de GitHub.
-
-## Ejercicio 2: git y Remotes
-
-Primero, algunas definiciones rápidas:
-
-- Un **remote** es la página web host o servidor que va a almacenar su código remotamente en vez de tener únicamente el código de forma local en su propia computadora. Pueden pensar en esto de igual manera a como se almacena un archivo en DropBox o Google Drive pero con el poder que nos da git.
-
-- Un **branch** es una secuencia (por aparte) de diferentes cambios a su código. Pueden pensar en los _branches_ como diferentes versiones de su código, que en algún punto fueron lo mismo. La siguiente figura muestra a que nos referimos como branches.
-
-![branch](/assets/img/labs/lab00/branch.svg)
-
-A lo largo de este curso, estarán trabajando en dos diferentes "_computadoras_" que generalmente tendran diferentes versiones de su código en algún tiempo. Estas dos son: su computadora personal y su remote de GitHub (sus repositorios privados de GitHub). Es esencial que entiendan la diferencia entre estas dos y como pueden compartir código entre ellas.
-
-1. Su **computadora personal** es la que les servirá para hacer todo el trabajo (laboratorios y proyectos) que necesiten hacer durante el curso, nada nuevo aquí.
-2. Su cuenta de GitHub y los **remotes** les servirán para muchos propósitos, pero la principal razón es para tener un backup o copia de respaldo, de tal manera que si algo malo le sucede a sus computadoras (esperamos no :v:), puedan recuperar su código en vez de empezar de cero nuevamente. Conceptualmente, pueden pensar en los remotes de GitHub como otra computadora que únicamente almacena su código y nada más. Siempre deben subir sus cambios a GitHub haciendo _push_ al remote (es decir actualizando los archivos en GitHub) y también pueden descargar los cambios de GitHub haciendo _pull_ (actualizando los archivos en su computadora personal).
-
-### Haciendo push hacia GitHub
+### Ejercicio 2: GitHub
 
 Vamos a crear un archivo llamado `hello.sh` en la carpeta del laboratorio ejecutando el siguiente commando en la terminal:
 
@@ -241,3 +146,83 @@ git push -u origin main
 Por favor subir el link de su repositorio al **GES**. Siempre es necesario que suban su repositorio al GES, incluso si no completaron todos los ejercicios, de lo contrario la nota será de 0 puntos.
 
 La calificación de este laboratorio será de 0 a 100 puntos, donde 100 puntos es la calificación máxima. La calificación se basará en la cantidad de ejercicios completados. Si tienen alguna duda sobre la calificación, por favor envíen un correo a los auxiliares.
+
+Para subir su laboratorio al autograder deben hacer lo siguiente, estando en la carpeta del laboratorio:
+
+```shell
+autograder assignment submit
+```
+
+Si por alguna razon les pide que ingresen el id de la asignación, pueden ingresar el siguiente id: **`966a5593-4aac-44b3-9c99-bed2f5d77b6e`**.
+
+Una vez suban su laboratorio al autograder, les va a salir un mensaje como el siguiente:
+
+```shell
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Assignment | Submit
+
+✔ Got assignment info successfully!
+✔ Files zipped successfully!
+✔ Files uploaded successfully!
+✔ Assignment submitted successfully!
+
+╔══════════════╤══════════════════════════════════════╗
+║ Id           │ e58e7f1c-96ae-477a-8851-77ba16bf7443 ║
+╟──────────────┼──────────────────────────────────────╢
+║ Status       │ SUBMITTED                            ║
+╟──────────────┼──────────────────────────────────────╢
+║ Submitted At │ 10 Feb, 2023 06:18:21 pm             ║
+╚══════════════╧══════════════════════════════════════╝
+```
+
+Para ver el estado de su laboratorio pueden hacer lo siguiente:
+
+```shell
+
+autograder submit last
+```
+
+Si ya está calificado, les va a salir un mensaje como el siguiente:
+
+```shell
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Submission | Last
+
+Please enter the assignment id:
+
+? Assignment id:  966a5593-4aac-44b3-9c99-bed2f5d77b6e
+
+✔ Got submission info successfully!
+
+╔════════╤══════════════════════════════════════╗
+║ Id     │ e58e7f1c-96ae-477a-8851-77ba16bf7443 ║
+╟────────┼──────────────────────────────────────╢
+║ Grade  │ 100                                  ║
+╟────────┼──────────────────────────────────────╢
+║ Status │ GRADED                               ║
+╚════════╧══════════════════════════════════════╝
+
+Stdout:
+
+1. Hello
+
+...
+
+3. Binary Alphabet
+
+...
+
+4. 1,000 $1 Bills
+
+...
+```
+
+Pueden subir su laboratorio **3** veces, pero solo se tomará en cuenta la entrega que tenga la calificación más alta. Si no les gusta la calificación que obtuvieron, pueden volver a subir su laboratorio hasta que obtengan la calificación que desean.

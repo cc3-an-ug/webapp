@@ -54,5 +54,8 @@ nav:
   - Inicio: index.md
   - Laboratorios:
       - "00: Git": labs/lab00.md
+      - "01: C y CGDB": labs/lab01.md
   - Tutoriales:
       - "Máquina Virtual": tutorials/install.md
+      - "Git y GitHub": tutorials/git.md
+      - "Autograder": tutorials/autograder.md
