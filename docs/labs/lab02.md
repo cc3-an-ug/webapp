@@ -141,8 +141,6 @@ Es momento de revisar el código de _ex3/vector.c_ si no lo han hecho. Aquí hay
 
 Saber cómo reorganizar y liberar memoria es importante para la programación en C. Piensen que el manejo de memoria es como un parqueo, si hay carros parqueados y los dueños nunca se van, entonces no tienen espacio para nuevos carros. **Y recuerden que deberían tener un 'heap' vacío al terminar su programa. Utilicen free y todo estará bien.**
 
-## Entrega y Calificación
-
 ## Entrega y calificación
 
 Por favor subir el link de su repositorio al **GES**. Siempre es necesario que suban su repositorio al GES, incluso si no completaron todos los ejercicios, de lo contrario la nota será de 0 puntos.

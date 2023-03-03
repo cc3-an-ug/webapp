@@ -57,7 +57,7 @@ nav:
       - "01: C y CGDB": labs/lab01.md
       - "02: C y MM": labs/lab02.md
   - Proyectos:
-      - "01: Snake (Culebrita)": projects/pj00.md
+      - "01: Snake (Culebrita)": projects/pj01.md
   - Tutoriales:
       - "Máquina Virtual": tutorials/install.md
       - "Git y GitHub": tutorials/git.md
