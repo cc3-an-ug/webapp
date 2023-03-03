@@ -11,7 +11,7 @@
 
 ## Preparación
 
-De primero, deben de descargar todos los archivos que necesitarán para completar este laboratorio, estos se encuentran [aquí](https://classroom.github.com/a/QP_J2KA_). Recuerden que deben aceptar la asignación y se les creará automáticamente un repositorio con una extensión que termina con su usuario.
+De primero, deben de descargar todos los archivos que necesitarán para completar este laboratorio, estos se encuentran [aquí](https://classroom.github.com/a/buXamYD2). Recuerden que deben aceptar la asignación y se les creará automáticamente un repositorio con una extensión que termina con su usuario.
 Recuerden que este será revisado en búsqueda de copia o plagio, así que no lo hagan. De lo contrario, será sancionado acorde al reglamento de la universidad.
 
 Ahora, ya pueden ejecutar en la terminal el comando que les descargará los archivos base en el directorio a su elección:
@@ -140,3 +140,87 @@ Es momento de revisar el código de _ex3/vector.c_ si no lo han hecho. Aquí hay
 - Corrijan a _vector_set()_. Esta es la más complicada. Bienvenidos a las ligas mayores. El problema de manipular una posición/índice arbitrario en un vector _v_ es que es posible que no se haya reservado suficiente espacio con _malloc_ en _vector->data_ (sí, eso significa que tuvieron que haber guardado memoria con _malloc_). Piensen cómo administrar la memoria para lograr esto, para ver qué hacer con la data que estaba ahí antes y de qué otras cosas deben de hacer en su nuevo bloque de datos. Ayuda: Recuerden que los índices que no hayan sido alterados deben de ser cero. Hay distintas formas de acabar resolviendo esta función. Consideren el uso de las 3 funciones _\_\_alloc_, porque pueden resultar útiles...
 
 Saber cómo reorganizar y liberar memoria es importante para la programación en C. Piensen que el manejo de memoria es como un parqueo, si hay carros parqueados y los dueños nunca se van, entonces no tienen espacio para nuevos carros. **Y recuerden que deberían tener un 'heap' vacío al terminar su programa. Utilicen free y todo estará bien.**
+
+## Entrega y Calificación
+
+## Entrega y calificación
+
+Por favor subir el link de su repositorio al **GES**. Siempre es necesario que suban su repositorio al GES, incluso si no completaron todos los ejercicios, de lo contrario la nota será de 0 puntos.
+
+La calificación de este laboratorio será de 0 a 100 puntos, donde 100 puntos es la calificación máxima. La calificación se basará en la cantidad de ejercicios completados. Si tienen alguna duda sobre la calificación, por favor envíen un correo a los auxiliares.
+
+Para subir su laboratorio al autograder deben hacer lo siguiente, estando en la carpeta del laboratorio:
+
+```shell
+autograder assignment submit
+```
+
+Si por alguna razon les pide que ingresen el id de la asignación, pueden ingresar el siguiente id: **`0118eecf-e7ec-4967-ba6f-2f8910338e9e`**.
+
+Una vez suban su laboratorio al autograder, les va a salir un mensaje como el siguiente:
+
+```shell
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Assignment | Submit
+
+✔ Got assignment info successfully!
+✔ Files zipped successfully!
+✔ Files uploaded successfully!
+✔ Assignment submitted successfully!
+
+╔══════════════╤══════════════════════════════════════╗
+║ Id           │ e58e7f1c-96ae-477a-8851-77ba16bf7443 ║
+╟──────────────┼──────────────────────────────────────╢
+║ Status       │ SUBMITTED                            ║
+╟──────────────┼──────────────────────────────────────╢
+║ Submitted At │ 10 Feb, 2023 06:18:21 pm             ║
+╚══════════════╧══════════════════════════════════════╝
+```
+
+Para ver el estado de su laboratorio pueden hacer lo siguiente:
+
+```shell
+
+autograder submit last
+```
+
+Si ya está calificado, les va a salir un mensaje como el siguiente:
+
+```sh
+ _
+|-|  __
+|=| [Ll]        Autograder
+"^" ====`o
+
+=>    Submission | Last
+
+✔ Got submission info successfully!
+
+╔════════╤══════════════════════════════════════╗
+║ Id     │ 62b44820-9b95-4efa-8da3-0c7db59f95f1 ║
+╟────────┼──────────────────────────────────────╢
+║ Grade  │ 100                                  ║
+╟────────┼──────────────────────────────────────╢
+║ Status │ GRADED                               ║
+╚════════╧══════════════════════════════════════╝
+
+Stdout:
+
+1. Bitwise Operands
+
+...
+
+2. LFSR
+
+...
+
+3. Vector
+
+...
+```
+
+Pueden subir su laboratorio **10** veces, pero solo se tomará en cuenta la entrega que tenga la calificación más alta. Si no les gusta la calificación que obtuvieron, pueden volver a subir su laboratorio hasta que obtengan la calificación que desean.
