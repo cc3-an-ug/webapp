@@ -58,6 +58,7 @@ nav:
       - "02: C y MM": labs/lab02.md
       - "03: RISCV": labs/lab03.md
       - "04: Logisim": labs/lab05.md
+      - "05: Logisim ALU": labs/lab07.md
   - Proyectos:
       - "01: Snake (Culebrita)": projects/pj01.md
       - "02: RISCV": projects/pj02.md
