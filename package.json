@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "license": "MIT",
+  "name": "cc3",
+  "version": "0.1.0",
+  "description": "CC3 Docs",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "generate": "turbo run generate",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint-config-cc3": "*",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "turbo": "^1.11.3"
+  }
+}

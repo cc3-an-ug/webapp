@@ -1,0 +1,14 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@public/*": ["public/*"],
+      "@cc3/design/*": ["../../packages/cc3-design/src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
