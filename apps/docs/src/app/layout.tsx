@@ -1,7 +1,6 @@
 import '@cc3/design/style/globals.css';
 
 import type { Metadata } from 'next';
-import { Work_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 
@@ -10,12 +9,6 @@ import { Button } from '@cc3/design/ui/button';
 import { Search } from '@cc3/design/ui/icons';
 
 import { SiteConfig } from '@/config/site';
-
-const WorkSansFont = Work_Sans({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-sans2',
-});
 
 const SatoshiFont = localFont({
   src: [
@@ -91,14 +84,14 @@ export const metadata: Metadata = {
     width: 'device-width',
   },
   keywords: [
-    'Web',
-    'Development',
-    'Agency',
+    'Docs',
+    'CC3',
+    'Galileo',
     'Labs',
-    'Design',
+    'Projects',
     'Software',
     'Engineering',
-    'Consulting',
+    'University',
   ],
   openGraph: {
     type: 'website',
