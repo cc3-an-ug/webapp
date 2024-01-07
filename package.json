@@ -1,28 +1,53 @@
 {
-  "private": true,
-  "license": "MIT",
-  "name": "cc3",
+  "name": "cc3an",
   "version": "0.1.0",
-  "description": "CC3 Docs",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "generate": "turbo run generate",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
-    "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean",
-    "format": "prettier --write ."
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "sanity:dev": "sanity dev",
+    "sanity:start": "sanity start",
+    "sanity:build": "sanity build",
+    "sanity:deploy": "sanity deploy",
+    "sanity:deploy-graphql": "sanity graphql deploy",
+    "clean": "rimraf .next"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.309.0",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-wrap-balancer": "^1.1.0",
+    "styled-components": "^6.1.8",
+    "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
-    "eslint-config-cc3": "*",
-    "husky": "^8.0.3",
-    "prettier": "^3.1.1",
+    "@next/bundle-analyzer": "^14.0.4",
+    "@sanity/code-input": "^4.1.2",
+    "@sanity/vision": "^3.24.1",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "turbo": "^1.11.3"
+    "react-is": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "sanity": "^3.24.1",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.3.3"
   }
 }
