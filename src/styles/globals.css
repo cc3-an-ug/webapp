@@ -16,4 +16,8 @@
   * {
     @apply font-sans antialiased;
   }
+
+  .dark body {
+    background-color: rgb(11, 15, 26);
+  }
 }
