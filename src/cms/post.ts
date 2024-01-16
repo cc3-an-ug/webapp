@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type {
   PortableTextBlock,
   PortableTextSpan,
@@ -61,6 +62,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       _updatedAt,
     }
   `);
+
+  if (!data) notFound();
 
   return data;
 }
