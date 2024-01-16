@@ -13,6 +13,7 @@ module.exports = {
     warnOnUnsupportedTypeScriptVersion: false,
   },
   rules: {
+    '@next/next/no-img-element': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': [
