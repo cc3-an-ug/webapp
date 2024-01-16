@@ -1,3 +1,4 @@
+import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const SatoshiFont = localFont({
@@ -54,4 +55,16 @@ export const SatoshiFont = localFont({
       style: 'italic',
     },
   ],
+});
+
+export const JetBrainsMonoFont = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+});
+
+export const PlusJakartaFont = Plus_Jakarta_Sans({
+  variable: '--font-sans',
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
 });
