@@ -51,7 +51,7 @@
 
 @layer base {
   * {
-    @apply border-border antialiased outline-none;
+    @apply border-border scroll-smooth antialiased outline-none;
   }
 
   *::selection {

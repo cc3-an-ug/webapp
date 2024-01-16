@@ -4,12 +4,12 @@ import clsx from 'clsx';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { Provider } from '@/components/provider';
 import { SiteConfig } from '@/config/site';
 
 import { JetBrainsMonoFont, SatoshiFont } from './fonts';
-import { RootLayoutFooter } from './footer';
-import { RootLayoutHeader } from './header';
-import { RootLayoutProvider } from './provider';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SiteConfig.url),
@@ -56,13 +56,13 @@ export default async function RootLayout({
   return (
     <html lang="es_ES" className="dark" suppressHydrationWarning>
       <body className={clsx(SatoshiFont.variable, JetBrainsMonoFont.variable)}>
-        <RootLayoutProvider>
-          <RootLayoutHeader />
+        <Provider>
+          <Header />
           <div className="flex min-h-screen flex-col justify-between">
             {children}
-            <RootLayoutFooter />
+            <Footer />
           </div>
-        </RootLayoutProvider>
+        </Provider>
       </body>
     </html>
   );
