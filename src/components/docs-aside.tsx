@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 
 import { getPostsPreview } from '@/cms/post';
 
+import { CommandK } from './command-k';
 import { SideLink } from './side-link';
 import { Skeleton } from './ui/skeleton';
 
@@ -54,53 +55,56 @@ async function DocsAsideAsync() {
   const { labs, projects, tutorials } = await getPostsPreview();
 
   return (
-    <div className="space-y-2 pr-6">
-      {labs.length > 0 && (
-        <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
-          Laboratorios
-        </span>
-      )}
-      {labs.length > 0 && (
-        <div className="ml-3 space-y-2 border-l pl-3">
-          {labs.map((lab) => (
-            <SideLink exact key={lab._id} href={`/doc/${lab.slug.current}`}>
-              {lab.title}
-            </SideLink>
-          ))}
-        </div>
-      )}
-      {projects.length > 0 && (
-        <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
-          Proyectos
-        </span>
-      )}
-      {projects.length > 0 && (
-        <div className="ml-3 space-y-2 border-l pl-3">
-          {projects.map((proj) => (
-            <SideLink exact key={proj._id} href={`/doc/${proj.slug.current}`}>
-              {proj.title}
-            </SideLink>
-          ))}
-        </div>
-      )}
-      {tutorials.length > 0 && (
-        <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
-          Tutoriales
-        </span>
-      )}
-      {tutorials.length > 0 && (
-        <div className="ml-3 space-y-2 border-l pl-3">
-          {tutorials.map((tutorial) => (
-            <SideLink
-              exact
-              key={tutorial._id}
-              href={`/doc/${tutorial.slug.current}`}
-            >
-              {tutorial.title}
-            </SideLink>
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <CommandK labs={labs} projects={projects} tutorials={tutorials} />
+      <div className="space-y-2 pr-6">
+        {labs.length > 0 && (
+          <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
+            Laboratorios
+          </span>
+        )}
+        {labs.length > 0 && (
+          <div className="ml-3 space-y-2 border-l pl-3">
+            {labs.map((lab) => (
+              <SideLink exact key={lab._id} href={`/doc/${lab.slug.current}`}>
+                {lab.title}
+              </SideLink>
+            ))}
+          </div>
+        )}
+        {projects.length > 0 && (
+          <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
+            Proyectos
+          </span>
+        )}
+        {projects.length > 0 && (
+          <div className="ml-3 space-y-2 border-l pl-3">
+            {projects.map((proj) => (
+              <SideLink exact key={proj._id} href={`/doc/${proj.slug.current}`}>
+                {proj.title}
+              </SideLink>
+            ))}
+          </div>
+        )}
+        {tutorials.length > 0 && (
+          <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
+            Tutoriales
+          </span>
+        )}
+        {tutorials.length > 0 && (
+          <div className="ml-3 space-y-2 border-l pl-3">
+            {tutorials.map((tutorial) => (
+              <SideLink
+                exact
+                key={tutorial._id}
+                href={`/doc/${tutorial.slug.current}`}
+              >
+                {tutorial.title}
+              </SideLink>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }

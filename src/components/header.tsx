@@ -34,8 +34,9 @@ export function Header() {
         <nav className="divide-border hidden items-center divide-x lg:flex">
           <div className="flex items-center pr-2 lg:space-x-4 lg:pr-8">
             <Button
+              id="command-k"
               variant="outline"
-              className="bg-muted/30 group relative w-64 justify-between pl-8 pr-2"
+              className="bg-muted/30 group relative w-64 cursor-text justify-between pl-8 pr-2"
             >
               <Search className="absolute left-2 h-4 w-4" />
               <span>Buscar</span>
