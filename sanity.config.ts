@@ -14,7 +14,12 @@ export default defineConfig({
   projectId: 'hmy77kmc',
   dataset: 'production',
 
+  schema: {
+    types: schemaTypes,
+  },
+
   plugins: [
+    visionTool(),
     structureTool(),
     codeInput({
       codeModes: [
@@ -55,7 +60,7 @@ export default defineConfig({
             ),
         },
         {
-          name: 'sh',
+          name: 'shell',
           loader: () =>
             import('@codemirror/legacy-modes/mode/shell').then(({ shell }) =>
               StreamLanguage.define(shell),
@@ -91,10 +96,5 @@ export default defineConfig({
         },
       ],
     }),
-    visionTool(),
   ],
-
-  schema: {
-    types: schemaTypes,
-  },
 });
