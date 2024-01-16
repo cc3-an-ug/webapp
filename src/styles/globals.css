@@ -5,6 +5,7 @@
 @layer base {
   :root {
     color-scheme: light;
+    scroll-behavior: smooth;
   }
 
   .dark {
@@ -17,7 +18,11 @@
     @apply font-sans antialiased;
   }
 
+  code * {
+    @apply font-mono;
+  }
+
   .dark body {
-    background-color: rgb(11, 15, 26);
+    @apply bg-slate-950;
   }
 }
