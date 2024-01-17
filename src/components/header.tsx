@@ -1,17 +1,18 @@
-import { Cpu, Github, Menu, Search, Slack } from 'lucide-react';
+import { Cpu, Github, Search, Slack } from 'lucide-react';
 import Link from 'next/link';
 
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
+import { Drawer } from './drawer';
 import { YearBadge } from './year-badge';
 
 export function Header() {
   return (
     <header className="bg-background/90 fixed z-50 w-full border-b backdrop-blur backdrop-filter">
-      <div className="w-ful mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-8 lg:px-16">
-        <div className="flex items-center space-x-2.5">
+      <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between gap-2 px-4 md:px-8 lg:px-16">
+        <div className="hidden items-center space-x-2.5 lg:flex">
           <Link
             href="/"
             className="flex items-center gap-2 font-bold no-underline"
@@ -21,28 +22,19 @@ export function Header() {
           </Link>
           <YearBadge />
         </div>
-        <div className="lg:hidden">
-          <Button
-            size="icon"
-            variant="ghost"
-            aria-label="Toggle menu"
-            className="text-muted-foreground"
-          >
-            <Menu className="h-4 w-4" />
-          </Button>
-        </div>
-        <nav className="divide-border hidden items-center divide-x lg:flex">
-          <div className="flex items-center pr-2 lg:space-x-4 lg:pr-8">
+        <Drawer />
+        <nav className="divide-border flex flex-1 grow items-center justify-end divide-x">
+          <div className="flex flex-1 grow items-center pr-2 md:max-w-64 lg:space-x-4 lg:pr-8">
             <Button
               id="command-k"
               variant="outline"
-              className="bg-muted/30 group relative w-64 cursor-text justify-between pl-8 pr-2"
+              className="bg-muted/30 group relative w-full justify-between pl-8 pr-2 lg:cursor-text"
             >
               <Search className="absolute left-2 h-4 w-4" />
               <span>Buscar</span>
               <Badge
                 variant="secondary"
-                className="group-hover:border-primary group-hover:bg-background"
+                className="group-hover:border-primary group-hover:bg-background hidden lg:inline-flex"
               >
                 ⌘K
               </Badge>

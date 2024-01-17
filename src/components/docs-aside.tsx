@@ -58,6 +58,12 @@ async function DocsAsideAsync() {
     <>
       <CommandK labs={labs} projects={projects} tutorials={tutorials} />
       <div className="space-y-2 pr-6">
+        <SideLink href="https://drive.google.com/file/d/1HX9lzcZKw40-G_BW3vVKpX51v9rLq4IY/view?usp=sharing">
+          Programa de Curso
+        </SideLink>
+        <SideLink href="https://drive.google.com/file/d/1TwOfE-D5Hf2iXJWndq-3jQcntwqZVOWT/view?usp=sharing">
+          Calendario
+        </SideLink>
         {labs.length > 0 && (
           <span className="flex h-8 grow items-center px-3 text-sm font-medium leading-none">
             Laboratorios

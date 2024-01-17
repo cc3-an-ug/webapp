@@ -1,7 +1,5 @@
 import { ChevronRight } from 'lucide-react';
 
-import { DocsSheet } from './docs-sheet';
-
 export function DocsHeader({ title }: { title: string }) {
   return (
     <header className="relative w-full">
@@ -14,12 +12,9 @@ export function DocsHeader({ title }: { title: string }) {
             <ChevronRight className="text-muted-foreground w-4" />
           </li>
         </ul>
-        <h1 className="sr-only text-2xl font-semibold md:text-3xl lg:not-sr-only lg:text-4xl">
+        <h1 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
           {title}
         </h1>
-        <div className="lg:hidden">
-          <DocsSheet title={title} />
-        </div>
       </div>
     </header>
   );

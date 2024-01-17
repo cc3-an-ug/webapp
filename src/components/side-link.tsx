@@ -20,6 +20,7 @@ export function SideLink({
 }) {
   const pathname = usePathname();
   const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const isExternal = href.startsWith('http');
 
   return (
     <Tootltip.Provider>
@@ -32,9 +33,14 @@ export function SideLink({
               isActive &&
                 'bg-primary/60 text-primary-foreground dark:text-foreground dark:bg-primary/10',
               'text-muted-foreground line-clamp-1 flex w-full grow items-center justify-start gap-2 overflow-x-hidden',
+              isExternal && 'pl-3',
             )}
           >
-            <Link href={href}>
+            <Link
+              href={href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer' : undefined}
+            >
               <span className="line-clamp-1 inline-flex w-full overflow-x-hidden">
                 {children}
               </span>
