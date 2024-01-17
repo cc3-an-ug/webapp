@@ -31,6 +31,6 @@ export async function generateMetadata({
   const post = await getPostBySlug(params.slug);
 
   return {
-    title: `${post.title} | CC3 AN`,
+    title: post.title,
   };
 }
