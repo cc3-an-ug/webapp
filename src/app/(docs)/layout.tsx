@@ -2,7 +2,9 @@ import type { ReactNode } from 'react';
 
 import { DocsAside } from '@/components/docs-aside';
 
-export const revalidate = 3600;
+export const runtime = 'edge';
+
+export const dynamic = 'force-dynamic';
 
 export default function DocsLayout({ children }: { children?: ReactNode }) {
   return (
