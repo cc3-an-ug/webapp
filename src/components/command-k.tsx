@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Slack } from 'lucide-react';
+import { Calendar, File, Github, Slack } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -12,8 +12,21 @@ export function CommandK({ labs, projects, tutorials }: PostsPreview) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
+  function handleProgramClick() {
+    window.open(
+      'https://drive.google.com/file/d/1HX9lzcZKw40-G_BW3vVKpX51v9rLq4IY/view?usp=sharing',
+      '_blank',
+    );
+  }
+
+  function handleCalendarClick() {
+    window.open(
+      'https://drive.google.com/file/d/1TwOfE-D5Hf2iXJWndq-3jQcntwqZVOWT/view?usp=sharing',
+      '_blank',
+    );
+  }
+
   function handleGitHubClick() {
-    console.log('here');
     window.open('https://github.com/cc3-an-ug', '_blank');
   }
 
@@ -56,6 +69,14 @@ export function CommandK({ labs, projects, tutorials }: PostsPreview) {
       <Command.List>
         <Command.Empty>No hay resultados para la búsqueda</Command.Empty>
         <Command.Group heading="Externo">
+          <Command.Item onSelect={handleProgramClick}>
+            <File className="mr-2 h-4 w-4" />
+            <span>Programa de Curso</span>
+          </Command.Item>
+          <Command.Item onSelect={handleCalendarClick}>
+            <Calendar className="mr-2 h-4 w-4" />
+            <span>Calendario 2024</span>
+          </Command.Item>
           <Command.Item onSelect={handleGitHubClick}>
             <Github className="mr-2 h-4 w-4" />
             <span>GitHub</span>
