@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 
 import { DocsAside } from '@/components/docs-aside';
 
+export const revalidate = 3600;
+
 export default function DocsLayout({ children }: { children?: ReactNode }) {
   return (
     <main className="w-full pt-16">

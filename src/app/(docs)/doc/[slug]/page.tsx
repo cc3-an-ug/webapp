@@ -4,10 +4,6 @@ import { DocsContent } from '@/components/docs-content';
 import { DocsHeader } from '@/components/docs-header';
 import { DocsTOC } from '@/components/docs-toc';
 
-export const runtime = 'edge';
-
-export const dynamic = 'force-dynamic';
-
 export default async function DocPage({
   params,
 }: {
