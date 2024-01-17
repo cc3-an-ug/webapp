@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 
 import clsx from 'clsx';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
 import { Footer } from '@/components/footer';
@@ -11,17 +11,18 @@ import { SiteConfig } from '@/config/site';
 
 import { JetBrainsMonoFont, SatoshiFont } from './fonts';
 
+export const viewport: Viewport = {
+  initialScale: 1,
+  height: 'device-height',
+  width: 'device-width',
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SiteConfig.url),
   description: SiteConfig.description,
   title: {
     default: SiteConfig.name,
     template: `%s | ${SiteConfig.name}`,
-  },
-  viewport: {
-    initialScale: 1,
-    height: 'device-height',
-    width: 'device-width',
   },
   keywords: [
     'Docs',
