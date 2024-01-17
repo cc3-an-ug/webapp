@@ -16,7 +16,13 @@ export function DocsImage({
   isInline?: boolean;
 }) {
   const { width, height } = getImageDimensions(value);
-  const url = urlBuilder(client).image(value).fit('max').auto('format').url();
+
+  const url = urlBuilder(client)
+    .image(value)
+    .width(Math.min(width, 2000))
+    .fit('max')
+    .auto('format')
+    .url();
 
   return (
     <a href={url} rel="noreferrer" target="_blank">

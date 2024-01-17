@@ -57,9 +57,12 @@ export const blockContent = defineType({
           { title: 'HTML', value: 'html' },
           { title: 'CSS', value: 'css' },
           { title: 'C', value: 'c' },
-          { title: 'Shell', value: 'shell' },
+          { title: 'Shell', value: 'sh' },
         ],
       },
+    },
+    {
+      type: 'table',
     },
   ],
 });

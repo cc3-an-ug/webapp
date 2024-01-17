@@ -3,6 +3,7 @@ import { structureTool } from 'sanity/structure';
 
 import { StreamLanguage } from '@codemirror/language';
 import { codeInput } from '@sanity/code-input';
+import { table } from '@sanity/table';
 import { visionTool } from '@sanity/vision';
 
 import { schemaTypes } from './src/schemas';
@@ -21,6 +22,7 @@ export default defineConfig({
   plugins: [
     structureTool(),
     visionTool(),
+    table({}),
     codeInput({
       codeModes: [
         {
@@ -60,7 +62,7 @@ export default defineConfig({
             ),
         },
         {
-          name: 'shell',
+          name: 'sh',
           loader: () =>
             import('@codemirror/legacy-modes/mode/shell').then(({ shell }) =>
               StreamLanguage.define(shell),

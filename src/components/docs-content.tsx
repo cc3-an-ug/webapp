@@ -7,6 +7,7 @@ import { PortableText } from '@portabletext/react';
 import { DocsH2 } from './docs-h2';
 import { DocsH3 } from './docs-h3';
 import { DocsImage } from './docs-image';
+import { DocsTable } from './docs-table';
 
 export function DocsContent({
   content,
@@ -36,6 +37,9 @@ export function DocsContent({
                 {props.value.code}
               </SyntaxHighlighter>
             ),
+            table: ({ value }) => {
+              return <DocsTable rows={value.rows} />;
+            },
           },
         }}
       />
