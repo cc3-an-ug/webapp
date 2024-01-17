@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 import type {
   PortableTextBlock,
   PortableTextSpan,
@@ -27,7 +28,7 @@ export type PostsPreview = {
   tutorials: Array<PostPreview>;
 };
 
-export async function getPostsPreview(): Promise<PostsPreview> {
+export const getPostsPreview = cache(async (): Promise<PostsPreview> => {
   const data = await client.fetch<Array<PostPreview>>(`
     *[ _type == "post" ] {
       _id,
@@ -46,9 +47,9 @@ export async function getPostsPreview(): Promise<PostsPreview> {
     projects,
     tutorials,
   };
-}
+});
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export const getPostBySlug = cache(async (slug: string): Promise<Post> => {
   const data = await client.fetch<Post>(`
     *[ _type == "post" && slug.current == "${slug}" ][0] {
       _id,
@@ -66,4 +67,4 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   if (!data) notFound();
 
   return data;
-}
+});

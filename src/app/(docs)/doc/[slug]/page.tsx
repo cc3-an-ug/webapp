@@ -22,3 +22,15 @@ export default async function DocPage({
     </div>
   );
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPostBySlug(params.slug);
+
+  return {
+    title: `${post.title} | CC3 AN`,
+  };
+}
