@@ -8,11 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "sanity:dev": "sanity dev",
-    "sanity:start": "sanity start",
-    "sanity:build": "sanity build",
-    "sanity:deploy": "sanity deploy",
-    "sanity:deploy-graphql": "sanity graphql deploy",
     "clean": "rimraf .next"
   },
   "dependencies": {
@@ -34,14 +29,10 @@
     "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-wrap-balancer": "^1.1.0",
-    "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.4",
-    "@sanity/code-input": "^4.1.2",
-    "@sanity/table": "^1.1.0",
-    "@sanity/vision": "^3.24.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.47",
@@ -57,9 +48,7 @@
     "postcss": "^8.4.33",
     "prettier": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "react-is": "^18.2.0",
     "rimraf": "^5.0.5",
-    "sanity": "^3.24.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3"

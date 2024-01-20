@@ -4,7 +4,7 @@ import { Calendar, File, Github, Slack } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { PostsPreview } from '@/cms/post';
+import { PostsPreview } from '@/lib/cms';
 
 import * as Command from './ui/command';
 

@@ -1,8 +1,8 @@
-import { getPostBySlug } from '@/cms/post';
 import { DocsBanner } from '@/components/docs-banner';
 import { DocsContent } from '@/components/docs-content';
 import { DocsHeader } from '@/components/docs-header';
 import { DocsTOC } from '@/components/docs-toc';
+import { getPostBySlug } from '@/lib/cms';
 
 export default async function DocPage({
   params,

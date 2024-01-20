@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { getPostsPreview } from '@/cms/post';
+import { getPostsPreview } from '@/lib/cms';
 
 import { CommandK } from './command-k';
 import { SideLink } from './side-link';

@@ -1,7 +1,7 @@
 import { Link2 } from 'lucide-react';
 import { Suspense } from 'react';
 
-import { getPostsPreview } from '@/cms/post';
+import { getPostsPreview } from '@/lib/cms';
 
 import { CommandK } from './command-k';
 
