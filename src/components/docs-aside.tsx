@@ -8,7 +8,7 @@ import { Skeleton } from './ui/skeleton';
 
 export function DocsAside() {
   return (
-    <aside className="sticky top-16 hidden w-80 shrink-0 lg:block lg:h-[calc(100vh-4rem)]">
+    <aside className="sticky top-16 z-10 hidden w-80 shrink-0 lg:block lg:h-[calc(100vh-4rem)]">
       <div className="h-full w-full overflow-y-auto py-8">
         <Suspense fallback={<DocsAsideFallback />}>
           <DocsAsideAsync />

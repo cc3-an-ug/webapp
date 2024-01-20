@@ -12,12 +12,13 @@ export type Post = {
   _id: string;
   type: 'lab' | 'project' | 'tutorial';
   title: string;
+  date: string | null;
   slug: { current: string };
   excerpt: Array<PortableTextBlock>;
   body: Array<PortableTextBlock>;
   toc: Array<PortableTextTextBlock<PortableTextSpan>>;
-  _createdAt: Date;
-  _updatedAt: Date;
+  _createdAt: string;
+  _updatedAt: string;
 };
 
 export type PostPreview = Pick<Post, '_id' | 'type' | 'title' | 'slug'>;
@@ -30,7 +31,7 @@ export type PostsPreview = {
 
 export const getPostsPreview = cache(async (): Promise<PostsPreview> => {
   const data = await client.fetch<Array<PostPreview>>(`
-    *[ _type == "post" ] | order(_createdAt asc) {
+    *[ _type == "post" && visible == true ] | order(_createdAt asc) {
       _id,
       type,
       title,
@@ -51,10 +52,11 @@ export const getPostsPreview = cache(async (): Promise<PostsPreview> => {
 
 export const getPostBySlug = cache(async (slug: string): Promise<Post> => {
   const data = await client.fetch<Post>(`
-    *[ _type == "post" && slug.current == "${slug}" ][0] {
+    *[ _type == "post" && visible == true && slug.current == "${slug}" ][0] {
       _id,
       type,
       title,
+      date,
       slug,
       excerpt,
       body,

@@ -51,7 +51,7 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth antialiased outline-none;
+    @apply scroll-smooth border-border antialiased outline-none;
   }
 
   *::selection {
@@ -60,6 +60,10 @@
 
   code * {
     @apply font-mono;
+  }
+
+  .prose code:not([class*='language-']) {
+    @apply rounded-sm bg-slate-200 px-2 py-0.5 text-slate-900 dark:bg-slate-800 dark:text-slate-100;
   }
 
   body {

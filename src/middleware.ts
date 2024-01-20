@@ -9,6 +9,10 @@ export default async function handler(req: NextRequest) {
     return NextResponse.redirect(new URL(first, origin));
   }
 
+  if (req.nextUrl.pathname === '/doc') {
+    return NextResponse.redirect(new URL(first, origin));
+  }
+
   return NextResponse.next();
 }
 

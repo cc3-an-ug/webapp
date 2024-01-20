@@ -11,9 +11,14 @@ import { DocsTable } from './docs-table';
 
 export function DocsContent({
   content,
+  date,
 }: {
   content: Array<PortableTextBlock>;
+  date?: string | null;
 }) {
+  if (!date) return null;
+  if (new Date() < new Date(date)) return null;
+
   return (
     <div className="docs prose prose-lg prose-slate prose-yellow mx-auto mb-4 w-full min-w-0 max-w-3xl shrink p-4 pb-8 dark:prose-invert prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none  prose-code:after:content-none md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:pl-16 lg:pr-8">
       <PortableText
