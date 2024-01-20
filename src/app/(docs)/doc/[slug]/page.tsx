@@ -5,6 +5,12 @@ import { DocsHidden } from '@/components/docs-hidden';
 import { DocsTOC } from '@/components/docs-toc';
 import { getPostBySlug } from '@/lib/cms';
 
+export const runtime = 'edge';
+
+export const dynamic = 'force-dynamic';
+
+export const revalidate = 0;
+
 export default async function DocPage({
   params,
 }: {

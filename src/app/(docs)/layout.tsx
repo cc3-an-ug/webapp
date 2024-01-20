@@ -6,6 +6,8 @@ export const runtime = 'edge';
 
 export const dynamic = 'force-dynamic';
 
+export const revalidate = 0;
+
 export default function DocsLayout({ children }: { children?: ReactNode }) {
   return (
     <main className="w-full pt-16">
