@@ -30,7 +30,7 @@ export type PostsPreview = {
 
 export const getPostsPreview = cache(async (): Promise<PostsPreview> => {
   const data = await client.fetch<Array<PostPreview>>(`
-    *[ _type == "post" ] {
+    *[ _type == "post" ] | order(_createdAt asc) {
       _id,
       type,
       title,
