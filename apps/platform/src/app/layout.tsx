@@ -1,49 +1,43 @@
 import '@cc3/design/style/globals.css';
 
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
+import { Fonts } from '@cc3/design/lib/fonts';
 import { BalancerProvider } from '@cc3/design/ui/balancer-provider';
 
 import { SiteConfig } from '@/config/site';
-
-const InterFont = Inter({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-sans',
-});
 
 type RootLayoutProps = {
   children: ReactNode;
 };
 
+export const viewport: Viewport = {
+  initialScale: 1,
+  height: 'device-height',
+  width: 'device-width',
+};
+
 export const metadata: Metadata = {
-  colorScheme: 'light',
   metadataBase: new URL(SiteConfig.url),
   description: SiteConfig.description,
   title: {
     default: SiteConfig.name,
     template: `%s | ${SiteConfig.name}`,
   },
-  viewport: {
-    initialScale: 1,
-    height: 'device-height',
-    width: 'device-width',
-  },
   keywords: [
-    'Web',
-    'Development',
-    'Agency',
+    'Autograders',
+    'CC3',
+    'Galileo',
     'Labs',
-    'Design',
+    'Proyectos',
     'Software',
-    'Engineering',
-    'Consulting',
+    'Ingeniería',
+    'Universidad',
   ],
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'es-ES',
     url: SiteConfig.url,
     title: SiteConfig.name,
     siteName: SiteConfig.name,
@@ -58,8 +52,8 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={InterFont.className}>
+    <html lang="es-ES" suppressHydrationWarning>
+      <body className={Fonts}>
         <BalancerProvider>{children}</BalancerProvider>
       </body>
     </html>
