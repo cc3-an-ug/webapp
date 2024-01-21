@@ -5,6 +5,9 @@ import type { ReactNode } from 'react';
 
 import { Fonts } from '@cc3/design/lib/fonts';
 import { BalancerProvider } from '@cc3/design/ui/balancer-provider';
+import { Footer } from '@cc3/design/ui/footer';
+import { Header } from '@cc3/design/ui/header';
+import { ThemeProvider } from '@cc3/design/ui/theme-provider';
 
 import { SiteConfig } from '@/config/site';
 
@@ -54,7 +57,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es-ES" suppressHydrationWarning>
       <body className={Fonts}>
-        <BalancerProvider>{children}</BalancerProvider>
+        <BalancerProvider>
+          <ThemeProvider>
+            <Header />
+            <div className="flex min-h-screen flex-col justify-between">
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </BalancerProvider>
       </body>
     </html>
   );

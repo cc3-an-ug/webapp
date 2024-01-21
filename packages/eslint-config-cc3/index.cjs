@@ -14,6 +14,8 @@ module.exports = {
     warnOnUnsupportedTypeScriptVersion: false,
   },
   rules: {
+    'turbo/no-undeclared-env-vars': 'off',
+    '@next/next/no-img-element': 'off',
     '@next/next/no-html-link-for-pages': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',

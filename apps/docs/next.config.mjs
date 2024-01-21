@@ -14,6 +14,16 @@ const config = {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
   transpilePackages: ['@cc3/design'],
+  images: {
+    remotePatterns: [
+      {
+        port: '',
+        pathname: '/**',
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
+  },
 };
 
 export default withBundleAnalyzer(config);

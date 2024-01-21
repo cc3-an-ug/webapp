@@ -7,7 +7,7 @@ export function Skeleton({
   return (
     <span
       {...props}
-      className={cn('bg-primary/10 animate-pulse rounded-md', className)}
+      className={cn('bg-primary/10 block animate-pulse rounded-md', className)}
     />
   );
 }
