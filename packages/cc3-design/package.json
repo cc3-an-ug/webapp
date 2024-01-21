@@ -16,7 +16,7 @@
     "@radix-ui/react-toggle": "^1.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "lucide-react": "^0.312.0",
+    "lucide-react": "^0.313.0",
     "react-wrap-balancer": "^1.1.0",
     "tailwind-merge": "^2.2.0"
   },
