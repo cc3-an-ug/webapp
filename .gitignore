@@ -131,9 +131,3 @@ dist
 
 # .DS_Store files
 **/.DS_Store
-
-# .sanity files
-.sanity
-
-# Commit js
-commit.js

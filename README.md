@@ -1,1 +1,1 @@
-# CC3 AN Docs
+# CC3 Webapp Template
