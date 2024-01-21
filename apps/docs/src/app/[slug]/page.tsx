@@ -3,6 +3,9 @@ import { Content } from '@cc3/design/ui/content';
 import { cms, getPostBySlug, getPostsPreview } from '@/server/cms';
 
 import { Aside } from './aside';
+import { Banner } from './banner';
+import { Header } from './header';
+import { Hidden } from './hidden';
 
 export const runtime = 'edge';
 
@@ -39,11 +42,10 @@ export default async function DocPage({
         <div className="w-full lg:flex lg:w-[calc(100%-20rem)] lg:items-start">
           <div className="flex w-full">
             <div className="relative w-full pt-8 2xl:w-[calc(100%-20rem)]">
+              <Banner title={post.title} />
+              <Header title={post.title} />
+              <Hidden type={post.type} date={post.date} />
               <Content content={post.body} client={cms} />
-              {/* <DocsBanner title={post.title} />
-                  <DocsHeader title={post.title} />
-                  <DocsHidden type={post.type} date={post.date} />
-                  <DocsContent date={post.date} content={post.body} /> */}
             </div>
             {/* <DocsTOC content={post.toc} /> */}
           </div>
