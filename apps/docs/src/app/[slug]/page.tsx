@@ -6,6 +6,7 @@ import { Aside } from './aside';
 import { Banner } from './banner';
 import { Header } from './header';
 import { Hidden } from './hidden';
+import { TOC } from './toc';
 
 export const runtime = 'edge';
 
@@ -47,7 +48,7 @@ export default async function DocPage({
               <Hidden type={post.type} date={post.date} />
               <Content content={post.body} client={cms} />
             </div>
-            {/* <DocsTOC content={post.toc} /> */}
+            <TOC toc={post.toc} />
           </div>
         </div>
       </div>

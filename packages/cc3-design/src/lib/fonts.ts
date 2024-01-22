@@ -1,8 +1,8 @@
-import { JetBrains_Mono, Work_Sans } from 'next/font/google';
+import { JetBrains_Mono, Poppins } from 'next/font/google';
 
 import { cn } from './utils';
 
-export const WorkSansFont = Work_Sans({
+export const PoppinsFont = Poppins({
   variable: '--font-sans',
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -15,7 +15,7 @@ export const JetBrainsMonoFont = JetBrains_Mono({
 });
 
 export const Fonts = cn(
-  WorkSansFont.className,
-  WorkSansFont.variable,
+  PoppinsFont.className,
+  PoppinsFont.variable,
   JetBrainsMonoFont.variable,
 );
