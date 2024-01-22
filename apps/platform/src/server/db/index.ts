@@ -1,13 +1,22 @@
-import { drizzle } from 'drizzle-orm/planetscale-serverless';
+import { Kysely } from 'kysely';
+import { PlanetScaleDialect } from 'kysely-planetscale';
+import SqlString from 'sqlstring';
 
 import { Client } from '@planetscale/database';
 
-import * as schema from './schema';
+import { DBConfig } from '@/config/db';
 
-export const dbClient = new Client({
-  url: process.env.DATABASE_URL || '',
+import type { DB } from './types';
+
+export const client = new Client({
+  url: DBConfig.url,
 });
 
-export const db = drizzle(dbClient.connection(), {
-  schema,
+export const db = new Kysely<DB>({
+  dialect: new PlanetScaleDialect({
+    url: DBConfig.url,
+    format: SqlString.format,
+  }),
 });
+
+export { sql } from 'kysely';
