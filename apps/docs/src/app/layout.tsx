@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es-ES" suppressHydrationWarning>
       <body className={Fonts}>
