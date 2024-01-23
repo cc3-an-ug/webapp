@@ -14,12 +14,12 @@ export function Header({ children }: { children?: React.ReactNode }) {
             href="/"
             className="tracking- flex items-center gap-2 font-medium no-underline"
           >
-            <Cpu className="text-primary h-6 w-6" strokeWidth="1.5" />
-            <span>CC3 AN</span>
+            <span className="bg-tertiary text-tertiary-foreground inline-flex items-center justify-center rounded-full p-1">
+              <Cpu className="h-5 w-5" strokeWidth="1.5" />
+            </span>
+            <span className="font-semibold tracking-tighter">CC3 AN</span>
           </Link>
-          <Badge variant="outline" className="mt-0.5">
-            2024
-          </Badge>
+          <Badge variant="secondary">2024</Badge>
         </div>
         {children}
         <nav className="divide-border flex flex-1 grow items-center justify-end divide-x">
@@ -33,7 +33,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
               <span>Buscar</span>
               <Badge
                 variant="secondary"
-                className="group-hover:border-primary group-hover:bg-background hidden lg:inline-flex"
+                className="group-hover:border-tertiary group-hover:bg-background hidden lg:inline-flex"
               >
                 ⌘K
               </Badge>
@@ -50,7 +50,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
               <Link
                 target="_blank"
                 rel="noreferrer"
-                href="https://github.com/cc3-an-ug"
+                href="https://github.com/cc3-an"
               >
                 <Github className="h-4 w-4" />
                 <span className="sr-only">Github</span>

@@ -1,0 +1,22 @@
+{
+  "name": "@cc3/transactional",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "email dev --port 3003",
+    "lint": "eslint \"emails/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"emails/**/*.{ts,tsx}\" --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf .turbo .react-email"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.0.14",
+    "react-email": "^2.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "tsconfig": "*",
+    "typescript": "^5.3.3"
+  }
+}

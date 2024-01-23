@@ -3,5 +3,7 @@ declare namespace Lucia {
 
   type DatabaseUserAttributes = {
     email: string;
+    email_verified: number;
+    updated_at?: Date | null;
   };
 }

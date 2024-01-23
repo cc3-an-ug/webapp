@@ -6,7 +6,8 @@
   "description": "CC3 Web App",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "packages/cc3-transactional/.react-email"
   ],
   "scripts": {
     "prepare": "husky install",

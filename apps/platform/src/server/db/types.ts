@@ -10,6 +10,11 @@ export type Key = {
   user_id: string;
   hashed_password: string;
 };
+export type PasswordResetToken = {
+  id: string;
+  user_id: string;
+  expires: number;
+};
 export type Session = {
   id: string;
   user_id: string;
@@ -20,11 +25,19 @@ export type User = {
   id: string;
   name: string | null;
   email: string;
+  email_verified: Generated<number>;
   created_at: Generated<Timestamp>;
   updated_at: Timestamp | null;
 };
+export type UserVerificationToken = {
+  id: string;
+  user_id: string;
+  expires: number;
+};
 export type DB = {
   Key: Key;
+  PasswordResetToken: PasswordResetToken;
   Session: Session;
   User: User;
+  UserVerificationToken: UserVerificationToken;
 };

@@ -29,10 +29,9 @@ export function AsideLink({
             asChild
             variant="ghost"
             className={cn(
-              isActive &&
-                'bg-primary/60 text-primary-foreground dark:text-foreground dark:bg-primary/10',
               'text-muted-foreground flex w-full grow items-center justify-start gap-2',
               isExternal && 'pl-3',
+              isActive && 'bg-accent text-accent-foreground',
             )}
           >
             <Link

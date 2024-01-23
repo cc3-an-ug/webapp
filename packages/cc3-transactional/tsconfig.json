@@ -1,0 +1,5 @@
+{
+  "extends": "tsconfig/library.json",
+  "include": ["emails"],
+  "exclude": ["dist", "node_modules"],
+}

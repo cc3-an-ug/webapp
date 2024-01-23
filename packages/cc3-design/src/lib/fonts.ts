@@ -1,8 +1,14 @@
-import { JetBrains_Mono, Poppins } from 'next/font/google';
+import { Inter, JetBrains_Mono, Poppins } from 'next/font/google';
 
 import { cn } from './utils';
 
 export const PoppinsFont = Poppins({
+  variable: '--font-sans',
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+
+export const InterFont = Inter({
   variable: '--font-sans',
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -15,7 +21,7 @@ export const JetBrainsMonoFont = JetBrains_Mono({
 });
 
 export const Fonts = cn(
-  PoppinsFont.className,
-  PoppinsFont.variable,
+  InterFont.className,
+  InterFont.variable,
   JetBrainsMonoFont.variable,
 );

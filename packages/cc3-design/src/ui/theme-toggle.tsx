@@ -4,10 +4,18 @@ import { Loader2, Moon, Settings, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
+import { cn } from '@cc3/design/lib/utils';
+
 import { Button } from './button';
 import * as DropdownMenu from './dropdown-menu';
 
-export function ThemeToggle() {
+export function ThemeToggle({
+  className,
+  ...props
+}: Omit<
+  React.ComponentPropsWithoutRef<typeof DropdownMenu.Content>,
+  'children'
+>) {
   const { theme, systemTheme, setTheme } = useTheme();
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +38,12 @@ export function ThemeToggle() {
           {!loading && (isDark || isSysDark) && <Moon className="h-4 w-4" />}
         </Button>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end" sideOffset={20} className="w-40">
+      <DropdownMenu.Content
+        align="end"
+        sideOffset={20}
+        {...props}
+        className={cn('w-40', className)}
+      >
         <DropdownMenu.Item onClick={() => setTheme('light')}>
           Light
           <DropdownMenu.Shortcut>
