@@ -1,9 +1,8 @@
-import { Content } from '@cc3/design/ui/content';
-
-import { cms, getPostBySlug, getPostsPreview } from '@/server/cms';
+import { getPostBySlug, getPostsPreview } from '@/server/cms';
 
 import { Aside } from './aside';
 import { Banner } from './banner';
+import { Content } from './content';
 import { Header } from './header';
 import { Hidden } from './hidden';
 import { TOC } from './toc';
@@ -46,7 +45,7 @@ export default async function DocPage({
               <Banner title={post.title} />
               <Header title={post.title} />
               <Hidden type={post.type} date={post.date} />
-              <Content content={post.body} client={cms} />
+              <Content body={post.body} date={post.date} />
             </div>
             <TOC toc={post.toc} />
           </div>
