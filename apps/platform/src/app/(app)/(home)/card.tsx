@@ -11,7 +11,7 @@ export function AssignmentCard(
   data: Awaited<ReturnType<typeof listAssignments>>[number],
 ) {
   return (
-    <Link href={`/${data.slug}`}>
+    <Link href={`/${data.id}`}>
       <Card.Root className="glow h-72 w-full">
         <Card.Header className="border-b-tertiary gap-2 border-b">
           <Card.Title>{data.name}</Card.Title>
