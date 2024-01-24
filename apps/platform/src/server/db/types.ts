@@ -37,6 +37,8 @@ export type Session = {
 export type Submit = {
   id: string;
   assignment_id: string;
+  user_id: string;
+  metadata: unknown;
   stdout: Generated<string>;
   stderr: Generated<string>;
 };

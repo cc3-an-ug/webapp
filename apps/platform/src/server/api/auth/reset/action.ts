@@ -4,10 +4,10 @@ import { publicAction } from '@/server/action';
 import { auth } from '@/server/auth';
 import { validateToken } from '@/server/token';
 
-import { ResetSchema } from './schema';
+import { Schema } from './schema';
 
 export const resetPassword = publicAction(
-  ResetSchema,
+  Schema,
   async ({ token, password }) => {
     try {
       const userId = await validateToken('PasswordResetToken', token);

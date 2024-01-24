@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ResetSchema = z
+export const Schema = z
   .object({
     token: z.string().min(1, 'El token es requerido.'),
     password: z.string().min(1, 'La contraseña es requerida.'),
@@ -11,4 +11,4 @@ export const ResetSchema = z
     path: ['confirm'],
   });
 
-export type ResetValues = z.infer<typeof ResetSchema>;
+export type Values = z.infer<typeof Schema>;

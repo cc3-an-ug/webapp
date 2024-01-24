@@ -13,8 +13,8 @@ import { AlertTriangle, Loader2 } from '@cc3/design/ui/icons';
 import { Input } from '@cc3/design/ui/input';
 import { PasswordInput } from '@cc3/design/ui/password-input';
 
-import { signUp } from '@/server/api/signup/action';
-import { SignUpSchema, type SignUpValues } from '@/server/api/signup/schema';
+import { signUp } from '@/server/api/auth/signup/action';
+import { Schema, type Values } from '@/server/api/auth/signup/schema';
 
 export function SignUpForm() {
   const { push } = useRouter();
@@ -28,7 +28,7 @@ export function SignUpForm() {
   });
 
   const form = useForm({
-    resolver: zodResolver(SignUpSchema),
+    resolver: zodResolver(Schema),
     defaultValues: {
       email: '',
       password: '',
@@ -36,7 +36,7 @@ export function SignUpForm() {
     },
   });
 
-  function onSubmit(values: SignUpValues) {
+  function onSubmit(values: Values) {
     execute(values);
   }
 

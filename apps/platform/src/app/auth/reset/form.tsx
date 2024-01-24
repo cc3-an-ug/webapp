@@ -12,8 +12,8 @@ import * as Form from '@cc3/design/ui/form';
 import { AlertTriangle, Loader2 } from '@cc3/design/ui/icons';
 import { PasswordInput } from '@cc3/design/ui/password-input';
 
-import { resetPassword } from '@/server/api/reset/action';
-import { ResetSchema, type ResetValues } from '@/server/api/reset/schema';
+import { resetPassword } from '@/server/api/auth/reset/action';
+import { Schema, type Values } from '@/server/api/auth/reset/schema';
 
 export function ResetPasswordForm({ token }: { token: string }) {
   const { push } = useRouter();
@@ -27,7 +27,7 @@ export function ResetPasswordForm({ token }: { token: string }) {
   });
 
   const form = useForm({
-    resolver: zodResolver(ResetSchema),
+    resolver: zodResolver(Schema),
     defaultValues: {
       token,
       password: '',
@@ -35,7 +35,7 @@ export function ResetPasswordForm({ token }: { token: string }) {
     },
   });
 
-  function onSubmit(values: ResetValues) {
+  function onSubmit(values: Values) {
     execute(values);
   }
 

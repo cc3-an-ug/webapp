@@ -25,6 +25,7 @@ model User {
   sessions       Session[]
   keys           Key[]
   tokens         AssignmentToken[]
+  submits        Submit[]
 }
 
 model Session {
@@ -88,6 +89,9 @@ model Submit {
   id            String     @id @default(uuid())
   assignment_id String
   assignment    Assignment @relation(fields: [assignment_id], references: [id], onDelete: Cascade)
+  user_id       String
+  user          User       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  metadata      Json
   stdout        String     @default("")
   stderr        String     @default("")
 

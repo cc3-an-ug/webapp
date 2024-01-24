@@ -13,8 +13,8 @@ import * as Form from '@cc3/design/ui/form';
 import { AlertTriangle, CheckCircle, Loader2 } from '@cc3/design/ui/icons';
 import { Input } from '@cc3/design/ui/input';
 
-import { forgotPassword } from '@/server/api/forgot/action';
-import { ForgotSchema, type ForgotValues } from '@/server/api/forgot/schema';
+import { forgotPassword } from '@/server/api/auth/forgot/action';
+import { Schema, type Values } from '@/server/api/auth/forgot/schema';
 
 export function ForgotPasswordForm() {
   const [show, setShow] = useState(false);
@@ -28,13 +28,13 @@ export function ForgotPasswordForm() {
   });
 
   const form = useForm({
-    resolver: zodResolver(ForgotSchema),
+    resolver: zodResolver(Schema),
     defaultValues: {
       email: '',
     },
   });
 
-  function onSubmit(values: ForgotValues) {
+  function onSubmit(values: Values) {
     execute(values);
   }
 

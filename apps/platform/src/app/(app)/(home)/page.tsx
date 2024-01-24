@@ -1,16 +1,14 @@
+import { Badge } from '@cc3/design/ui/badge';
+import { Loader2 } from '@cc3/design/ui/icons';
 import { Input } from '@cc3/design/ui/input';
+import * as Table from '@cc3/design/ui/table';
 
-import { db } from '@/server/db';
+import { listAssignments } from '@/server/api/data/assignment/list';
 
 import { AssignmentCard } from './card';
 
-export async function getAssignments() {
-  const assignments = db.selectFrom('Assignment').selectAll().execute();
-  return assignments;
-}
-
 export default async function HomePage() {
-  const assignments = await getAssignments();
+  const assignments = await listAssignments();
 
   return (
     <div className="w-full space-y-8">
@@ -19,15 +17,15 @@ export default async function HomePage() {
       </form>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         {assignments.map((assignment) => (
-          <AssignmentCard key={assignment.id} />
+          <AssignmentCard key={assignment.id} {...assignment} />
         ))}
       </div>
-      {/* <Table.Root className="hidden md:table">
+      <Table.Root className="hidden md:table">
         <Table.Header>
           <Table.Row>
-            <Table.Head>Número</Table.Head>
-            <Table.Head>Estado</Table.Head>
-            <Table.Head>Tarea</Table.Head>
+            <Table.Head>Number</Table.Head>
+            <Table.Head>State</Table.Head>
+            <Table.Head>Name</Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -42,15 +40,13 @@ export default async function HomePage() {
               <a href="/autograders/db/deploy-requests/1">
                 <Badge variant="outline" className="border-tertiary gap-1">
                   <Loader2 className="h-3 w-3 animate-spin" />
-                  Calificando
+                  Loading
                 </Badge>
               </a>
             </Table.Cell>
             <Table.Cell>
               <a href="/autograders/db/deploy-requests/1">
-                <span className="text-primary font-medium">
-                  Lab 0: Git y Github
-                </span>
+                <span className="text-primary font-medium">Rolodex 1</span>
               </a>
             </Table.Cell>
           </Table.Row>
@@ -64,15 +60,13 @@ export default async function HomePage() {
             <Table.Cell>
               <a href="/autograders/db/deploy-requests/1">
                 <Badge variant="outline" className="border-green-500">
-                  Calificado
+                  Running
                 </Badge>
               </a>
             </Table.Cell>
             <Table.Cell>
               <a href="/autograders/db/deploy-requests/1">
-                <span className="text-primary font-medium">
-                  Lab 0: Git y Github
-                </span>
+                <span className="text-primary font-medium">Rolodex 2</span>
               </a>
             </Table.Cell>
           </Table.Row>
@@ -92,14 +86,12 @@ export default async function HomePage() {
             </Table.Cell>
             <Table.Cell>
               <a href="/autograders/db/deploy-requests/1">
-                <span className="text-primary font-medium">
-                  Lab 0: Git y Github
-                </span>
+                <span className="text-primary font-medium">Rolodex 3</span>
               </a>
             </Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table.Root> */}
+      </Table.Root>
     </div>
   );
 }

@@ -14,8 +14,8 @@ import { AlertTriangle, Loader2 } from '@cc3/design/ui/icons';
 import { Input } from '@cc3/design/ui/input';
 import { PasswordInput } from '@cc3/design/ui/password-input';
 
-import { signIn } from '@/server/api/signin/action';
-import { SignInSchema, type SignInValues } from '@/server/api/signin/schema';
+import { signIn } from '@/server/api/auth/signin/action';
+import { Schema, type Values } from '@/server/api/auth/signin/schema';
 
 export function SignInForm() {
   const { push } = useRouter();
@@ -29,14 +29,14 @@ export function SignInForm() {
   });
 
   const form = useForm({
-    resolver: zodResolver(SignInSchema),
+    resolver: zodResolver(Schema),
     defaultValues: {
       email: '',
       password: '',
     },
   });
 
-  function onSubmit(values: SignInValues) {
+  function onSubmit(values: Values) {
     execute(values);
   }
 

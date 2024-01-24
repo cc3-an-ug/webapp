@@ -11,9 +11,9 @@ import { resend } from '@/server/resend';
 import { getBaseUrl } from '@/server/shared';
 import { generateToken } from '@/server/token';
 
-import { ForgotSchema } from './schema';
+import { Schema } from './schema';
 
-export const forgotPassword = publicAction(ForgotSchema, async ({ email }) => {
+export const forgotPassword = publicAction(Schema, async ({ email }) => {
   try {
     const storedUser = await db
       .selectFrom('User')
