@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@cc3/design/lib/utils';
 
-const Root = React.forwardRef<
+export const Root = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -18,7 +18,7 @@ const Root = React.forwardRef<
 
 Root.displayName = 'Card';
 
-const Header = React.forwardRef<
+export const Header = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -31,7 +31,7 @@ const Header = React.forwardRef<
 
 Header.displayName = 'CardHeader';
 
-const Title = React.forwardRef<
+export const Title = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
@@ -44,7 +44,7 @@ const Title = React.forwardRef<
 
 Title.displayName = 'CardTitle';
 
-const Description = React.forwardRef<
+export const Description = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
@@ -57,7 +57,7 @@ const Description = React.forwardRef<
 
 Description.displayName = 'CardDescription';
 
-const Content = React.forwardRef<
+export const Content = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -66,7 +66,7 @@ const Content = React.forwardRef<
 
 Content.displayName = 'CardContent';
 
-const Footer = React.forwardRef<
+export const Footer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -78,12 +78,3 @@ const Footer = React.forwardRef<
 ));
 
 Footer.displayName = 'CardFooter';
-
-export const Card = {
-  Root,
-  Content,
-  Description,
-  Footer,
-  Header,
-  Title,
-};

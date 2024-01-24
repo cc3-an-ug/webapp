@@ -5,6 +5,19 @@ export type Generated<T> =
     : ColumnType<T, T | undefined, T>;
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
+export type Assignment = {
+  id: string;
+  name: string;
+  slug: string;
+  due: Timestamp;
+};
+export type AssignmentToken = {
+  id: string;
+  assignment_id: string;
+  user_id: string;
+  token: string;
+  expires: number;
+};
 export type Key = {
   id: string;
   user_id: string;
@@ -21,6 +34,12 @@ export type Session = {
   active_expires: number;
   idle_expires: number;
 };
+export type Submit = {
+  id: string;
+  assignment_id: string;
+  stdout: Generated<string>;
+  stderr: Generated<string>;
+};
 export type User = {
   id: string;
   name: string | null;
@@ -35,9 +54,12 @@ export type UserVerificationToken = {
   expires: number;
 };
 export type DB = {
+  Assignment: Assignment;
+  AssignmentToken: AssignmentToken;
   Key: Key;
   PasswordResetToken: PasswordResetToken;
   Session: Session;
+  Submit: Submit;
   User: User;
   UserVerificationToken: UserVerificationToken;
 };

@@ -1,15 +1,28 @@
-import { Badge } from '@cc3/design/ui/badge';
-import { Loader2 } from '@cc3/design/ui/icons';
 import { Input } from '@cc3/design/ui/input';
-import * as Table from '@cc3/design/ui/table';
+
+import { db } from '@/server/db';
+
+import { AssignmentCard } from './card';
+
+export async function getAssignments() {
+  const assignments = db.selectFrom('Assignment').selectAll().execute();
+  return assignments;
+}
 
 export default async function HomePage() {
+  const assignments = await getAssignments();
+
   return (
     <div className="w-full space-y-8">
-      <form className="w-full max-w-lg">
-        <Input placeholder="Buscar..." className="" />
+      <form className="w-full">
+        <Input placeholder="Buscar..." />
       </form>
-      <Table.Root className="hidden md:table">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        {assignments.map((assignment) => (
+          <AssignmentCard key={assignment.id} />
+        ))}
+      </div>
+      {/* <Table.Root className="hidden md:table">
         <Table.Header>
           <Table.Row>
             <Table.Head>Número</Table.Head>
@@ -86,7 +99,7 @@ export default async function HomePage() {
             </Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table.Root>
+      </Table.Root> */}
     </div>
   );
 }
