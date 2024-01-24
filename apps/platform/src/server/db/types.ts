@@ -1,4 +1,6 @@
 import type { ColumnType } from 'kysely';
+
+import type { Metadata } from './unknown';
 export type Generated<T> =
   T extends ColumnType<infer S, infer I, infer U>
     ? ColumnType<S, I | undefined, U>
@@ -36,11 +38,13 @@ export type Session = {
 };
 export type Submit = {
   id: string;
+  grade: Generated<number>;
   assignment_id: string;
   user_id: string;
-  metadata: unknown;
+  metadata: Metadata;
   stdout: Generated<string>;
   stderr: Generated<string>;
+  created_at: Generated<Timestamp>;
 };
 export type User = {
   id: string;

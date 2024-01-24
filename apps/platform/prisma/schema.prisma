@@ -87,6 +87,7 @@ model AssignmentToken {
 
 model Submit {
   id            String     @id @default(uuid())
+  grade         Int        @default(0)
   assignment_id String
   assignment    Assignment @relation(fields: [assignment_id], references: [id], onDelete: Cascade)
   user_id       String
@@ -94,6 +95,8 @@ model Submit {
   metadata      Json
   stdout        String     @default("")
   stderr        String     @default("")
+  created_at    DateTime   @default(now())
 
+  @@index([user_id])
   @@index([assignment_id])
 }
