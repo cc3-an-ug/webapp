@@ -7,21 +7,21 @@ import { AssignmentChart } from './chart';
 
 export default function SubmitPage() {
   return (
-    <div className="w-full space-y-16 py-8">
+    <div className="w-full space-y-16">
       <div className="flex w-full flex-col items-start justify-between gap-2 lg:flex-row">
-        <div className="flex flex-col items-start gap-2">
+        <div className="flex flex-col-reverse items-start gap-2 lg:flex-col">
           <h1 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
             Lab 0: Git y GitHub
           </h1>
-          <span className="font-mono text-xl">
-            <span className="text-red-500">0</span>
-            /100
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs">Exp.</span>
+            <Badge variant="secondary">12/09/2021</Badge>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs">Exp.</span>
-          <Badge variant="secondary">12/09/2021</Badge>
-        </div>
+        <span className="font-mono text-2xl">
+          <span className="text-red-500">0</span>
+          /100
+        </span>
       </div>
       <AssignmentChart />
       <div className="flex flex-col items-start gap-8">
@@ -32,8 +32,10 @@ export default function SubmitPage() {
           <Table.Header>
             <Table.Row>
               <Table.Head>Nombre</Table.Head>
-              <Table.Head>Nota</Table.Head>
-              <Table.Head>Comentarios</Table.Head>
+              <Table.Head className="w-20 lg:w-auto">Nota</Table.Head>
+              <Table.Head className="hidden lg:table-cell">
+                Comentarios
+              </Table.Head>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -46,54 +48,40 @@ export default function SubmitPage() {
                   0/100
                 </span>
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell className="hidden lg:table-cell">
                 <span className="text-muted-foreground font-medium">
-                  Que imbecil sos mano
+                  Fallo z
                 </span>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <span className="text-secondary-foreground">#</span>
-                  <span className="text-primary font-medium">100</span>
-                </a>
+                <span className="text-primary font-medium">Tutorial</span>
               </Table.Cell>
               <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <Badge variant="outline" className="border-green-500">
-                    Calificado
-                  </Badge>
-                </a>
+                <span className="text-primary font-mono font-medium">
+                  0/100
+                </span>
               </Table.Cell>
-              <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <span className="text-primary font-medium">
-                    Lab 0: Git y Github
-                  </span>
-                </a>
+              <Table.Cell className="hidden lg:table-cell">
+                <span className="text-muted-foreground font-medium">
+                  Fallo x
+                </span>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <span className="text-secondary-foreground">#</span>
-                  <span className="text-primary font-medium">100</span>
-                </a>
+                <span className="text-primary font-medium">Tutorial</span>
               </Table.Cell>
               <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <Badge variant="outline" className="border-red-500">
-                    Error
-                  </Badge>
-                </a>
+                <span className="text-primary font-mono font-medium">
+                  0/100
+                </span>
               </Table.Cell>
-              <Table.Cell>
-                <a href="/autograders/db/deploy-requests/1">
-                  <span className="text-primary font-medium">
-                    Lab 0: Git y Github
-                  </span>
-                </a>
+              <Table.Cell className="hidden lg:table-cell">
+                <span className="text-muted-foreground font-medium">
+                  Fallo w
+                </span>
               </Table.Cell>
             </Table.Row>
           </Table.Body>

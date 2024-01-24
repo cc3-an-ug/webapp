@@ -16,7 +16,7 @@ export default async function AppLayout({
     <div>
       <Header variant="platform" email={user.email} />
       <div className="flex min-h-screen flex-col justify-between">
-        <main className="w-full pt-32">
+        <main className="w-full pb-8 pt-32">
           <div className="mx-auto flex w-full max-w-screen-2xl px-4 md:px-8 lg:px-16">
             {children}
           </div>
