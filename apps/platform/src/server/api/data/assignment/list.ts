@@ -1,24 +1,22 @@
-import { cache } from 'react';
-
 import { db } from '@/server/db';
-import { getSession } from '@/server/session';
 
-export const listAssignments = cache(async () => {
-  const session = await getSession();
-
+export const listAssignments = async (userId: string) => {
   const [assignments, submits] = await Promise.all([
     db.selectFrom('Assignment').selectAll().orderBy('due', 'asc').execute(),
     db
       .selectFrom('Submit')
       .selectAll()
-      .where('user_id', '=', session.id)
+      .where('user_id', '=', userId)
       .orderBy('created_at', 'desc')
       .execute(),
   ]);
 
-  return assignments.map((assignment) => ({
-    ...assignment,
-    submits: submits.filter((submit) => submit.assignment_id === assignment.id),
-    maxScore: submits.reduce((acc, submit) => Math.max(acc, submit.grade), 0),
-  }));
-});
+  return assignments.map((assignment) => {
+    const s = submits.filter((s) => s.assignment_id === assignment.id);
+    return {
+      ...assignment,
+      submits: s,
+      maxScore: s.reduce((acc, submit) => Math.max(acc, submit.grade), 0),
+    };
+  });
+};

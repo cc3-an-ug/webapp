@@ -17,7 +17,6 @@ export type AssignmentToken = {
   id: string;
   assignment_id: string;
   user_id: string;
-  token: string;
   expires: number;
 };
 export type Key = {
@@ -42,8 +41,8 @@ export type Submit = {
   assignment_id: string;
   user_id: string;
   metadata: Metadata;
-  stdout: Generated<string>;
-  stderr: Generated<string>;
+  stdout: string;
+  stderr: string;
   created_at: Generated<Timestamp>;
 };
 export type User = {

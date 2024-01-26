@@ -2,6 +2,7 @@ import { SiteConfig } from '@/config/site';
 import type { PostsPreview } from '@/server/cms';
 
 import { AsideLink } from './aside-link';
+import { Search } from './search';
 
 export function Aside({ labs, projects, tutorials }: PostsPreview) {
   return (
@@ -24,7 +25,7 @@ export function AsideMobile({ labs, projects, tutorials }: PostsPreview) {
 function AsideLinks({ labs, projects, tutorials }: PostsPreview) {
   return (
     <div className="h-full w-full overflow-y-auto py-8">
-      {/* <CommandK labs={labs} projects={projects} tutorials={tutorials} /> */}
+      <Search labs={labs} projects={projects} tutorials={tutorials} />
       <div className="space-y-2 pr-6">
         <AsideLink href={SiteConfig.program}>Programa de Curso</AsideLink>
         <AsideLink href={SiteConfig.calendar}>Calendario</AsideLink>

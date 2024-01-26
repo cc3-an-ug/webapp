@@ -1,42 +1,35 @@
 'use client';
 
+import { useMemo } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts';
 
-const data = [
-  {
-    number: 1,
-    nota: 20,
-  },
-  {
-    number: 2,
+import { getAssignment } from '@/server/api/data/assignment/get';
 
-    nota: 80,
-  },
-  {
-    number: 3,
+export function AssignmentChart({
+  submits,
+}: {
+  submits: Awaited<ReturnType<typeof getAssignment>>['submits'];
+}) {
+  const data = useMemo(() => {
+    return [
+      {
+        number: 0,
+        nota: 0,
+      },
+      ...submits.map((submit, index) => ({
+        number: index + 1,
+        nota: submit.grade,
+      })),
+    ];
+  }, [submits]);
 
-    nota: 80,
-  },
-  {
-    number: 4,
-
-    nota: 85,
-  },
-  {
-    number: 5,
-
-    nota: 100,
-  },
-];
-
-export function AssignmentChart() {
   return (
     <div className="text-tertiary w-full">
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height={208}>
         <LineChart data={data}>
           <Tooltip
-            wrapperClassName="text-muted-foreground capitalize"
             labelClassName="text-foreground"
+            wrapperClassName="text-muted-foreground capitalize"
           />
           <Line
             dot={false}

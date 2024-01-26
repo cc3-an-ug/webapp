@@ -9,6 +9,8 @@ import { ThemeProvider } from '@cc3/design/ui/theme-provider';
 
 import { SiteConfig } from '@/config/site';
 
+import { APIProvider } from './provider';
+
 type RootLayoutProps = {
   children: ReactNode;
 };
@@ -56,7 +58,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="es-ES" suppressHydrationWarning>
       <body className={Fonts}>
         <BalancerProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <APIProvider>{children}</APIProvider>
+          </ThemeProvider>
         </BalancerProvider>
       </body>
     </html>

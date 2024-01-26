@@ -4,9 +4,16 @@ import { db } from './db';
 
 const EXPIRES_IN = 1000 * 60 * 60 * 2; // 2 hours
 
-export type TokenTable = 'UserVerificationToken' | 'PasswordResetToken';
+export type TokenTable =
+  | 'UserVerificationToken'
+  | 'PasswordResetToken'
+  | 'AssignmentToken';
 
-export async function generateToken(table: TokenTable, userId: string) {
+export async function generateToken(
+  table: TokenTable,
+  userId: string,
+  data: any = {},
+) {
   const storedUserTokens = await db
     .selectFrom(table)
     .selectAll()
@@ -31,6 +38,7 @@ export async function generateToken(table: TokenTable, userId: string) {
       id: token,
       user_id: userId,
       expires: new Date().getTime() + EXPIRES_IN,
+      ...data,
     })
     .executeTakeFirst();
 

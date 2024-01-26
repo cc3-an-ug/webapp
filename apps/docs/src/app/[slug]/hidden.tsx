@@ -34,10 +34,10 @@ export function Hidden({ type, date }: Pick<Post, 'type' | 'date'>) {
           </strong>
         </p>
         <p>
-          Nosotros entendemos el entusiasmo por explorar el material, y lo
-          apreciamos. Agradecemos la paciencia y comprensión. Mientras tanto, si
-          tienes alguna pregunta o inquietud, no dudes en contactarnos por los
-          canales oficiales.
+          Nosotros entendemos el entusiasmo por explorar el material.
+          Agradecemos la paciencia y comprensión. Mientras tanto, si tienes
+          alguna pregunta o inquietud, no dudes en contactarnos por los canales
+          oficiales.
         </p>
       </div>
     </div>

@@ -3,7 +3,15 @@ import type { ReactNode } from 'react';
 import { Cpu } from '@cc3/design/ui/icons';
 import { ThemeToggle } from '@cc3/design/ui/theme-toggle';
 
-export default function AuthLayout({ children }: { children?: ReactNode }) {
+import { redirectIfAuth } from '@/server/session';
+
+export default async function AuthLayout({
+  children,
+}: {
+  children?: ReactNode;
+}) {
+  await redirectIfAuth();
+
   return (
     <main className="flex h-svh w-full flex-col justify-center md:flex-row-reverse md:justify-start">
       <section className="mx-auto flex w-full items-start px-4 md:w-1/3 md:items-center md:px-0">
