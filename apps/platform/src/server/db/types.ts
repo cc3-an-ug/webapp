@@ -1,11 +1,12 @@
 import type { ColumnType } from 'kysely';
-
-import type { Metadata } from './unknown';
 export type Generated<T> =
   T extends ColumnType<infer S, infer I, infer U>
     ? ColumnType<S, I | undefined, U>
     : ColumnType<T, T | undefined, T>;
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
+
+import type { Status } from './enums';
+import type { Files, Metadata } from './unknown';
 
 export type Assignment = {
   id: string;
@@ -13,6 +14,7 @@ export type Assignment = {
   slug: string;
   due: Timestamp;
   limit: Generated<number>;
+  files: Files;
 };
 export type AssignmentToken = {
   id: string;
@@ -39,6 +41,7 @@ export type Session = {
 export type Submit = {
   id: string;
   grade: Generated<number>;
+  status: Generated<Status>;
   assignment_id: string;
   user_id: string;
   metadata: Metadata;

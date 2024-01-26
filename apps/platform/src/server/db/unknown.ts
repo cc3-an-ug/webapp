@@ -3,3 +3,5 @@ export type Metadata = Array<{
   grade: number;
   comments: string;
 }>;
+
+export type Files = string[];

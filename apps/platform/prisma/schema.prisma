@@ -15,6 +15,12 @@ generator kysely {
   enumFileName = "enums.ts"
 }
 
+enum Status {
+  PENDING
+  RUNNING
+  DONE
+}
+
 model User {
   id             String            @id @default(uuid())
   name           String?
@@ -69,6 +75,7 @@ model Assignment {
   slug    String            @unique
   due     DateTime
   limit   Int               @default(3)
+  files   Json
   submits Submit[]
   tokens  AssignmentToken[]
 }
@@ -88,6 +95,7 @@ model AssignmentToken {
 model Submit {
   id            String     @id @default(uuid())
   grade         Int        @default(0)
+  status        Status     @default(PENDING)
   assignment_id String
   assignment    Assignment @relation(fields: [assignment_id], references: [id], onDelete: Cascade)
   user_id       String
