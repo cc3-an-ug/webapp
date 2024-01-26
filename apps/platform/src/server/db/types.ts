@@ -12,6 +12,7 @@ export type Assignment = {
   name: string;
   slug: string;
   due: Timestamp;
+  limit: Generated<number>;
 };
 export type AssignmentToken = {
   id: string;
