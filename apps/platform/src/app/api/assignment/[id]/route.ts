@@ -3,6 +3,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAssignmentByUser } from '@/server/api/data/assignment/get';
 import { getSessionFromReq } from '@/server/session';
 
+export const runtime = 'edge';
+
+export const dynamic = 'force-dynamic';
+
+export const revalidate = 0;
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } },

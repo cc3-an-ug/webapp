@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Tareas',
 };
 
-export default async function HomePage({
+export default function HomePage({
   searchParams,
 }: {
   searchParams: { show?: string };

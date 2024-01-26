@@ -6,11 +6,7 @@ export const metadata: Metadata = {
   title: 'Tarea',
 };
 
-export default async function AssignmentPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function AssignmentPage({ params }: { params: { id: string } }) {
   const id = params.id;
   return <AssignmentData id={id} />;
 }

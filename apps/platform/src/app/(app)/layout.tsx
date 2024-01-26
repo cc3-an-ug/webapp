@@ -5,6 +5,12 @@ import { Header } from '@cc3/design/ui/header';
 
 import { getSession } from '@/server/session';
 
+export const runtime = 'edge';
+
+export const dynamic = 'force-dynamic';
+
+export const revalidate = 0;
+
 export default async function AppLayout({
   children,
 }: {

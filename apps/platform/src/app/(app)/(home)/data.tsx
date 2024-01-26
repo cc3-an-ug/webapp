@@ -24,7 +24,7 @@ export function HomeData({ show }: { show?: string }) {
         const [, show] = queryKey;
 
         const { data } = await axios.get<Assignments>(
-          `${getBaseUrl()}/api/assignment`,
+          `${getBaseUrl()}/api/assignment/list`,
           {
             withCredentials: true,
           },
