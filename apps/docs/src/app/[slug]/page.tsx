@@ -1,4 +1,8 @@
-import { getPostBySlug, getPostsPreview } from '@/server/cms';
+import {
+  getAllPostPreviews,
+  getPostBySlug,
+  getPostsPreview,
+} from '@/server/cms';
 
 import { Aside } from './aside';
 import { Banner } from './banner';
@@ -7,11 +11,13 @@ import { Header } from './header';
 import { Hidden } from './hidden';
 import { TOC } from './toc';
 
-export const runtime = 'edge';
+export async function generateStaticParams() {
+  const posts = await getAllPostPreviews();
 
-export const dynamic = 'force-dynamic';
-
-export const revalidate = 0;
+  return posts.map((post) => ({
+    slug: post.slug.current,
+  }));
+}
 
 export async function generateMetadata({
   params,

@@ -31,6 +31,17 @@ export type PostsPreview = {
 
 export const cms = createClient(SanityConfig);
 
+export async function getAllPostPreviews(): Promise<Array<PostPreview>> {
+  return await cms.fetch<Array<PostPreview>>(`
+    *[ _type == "post" && visible == true ] | order(_createdAt asc) {
+      _id,
+      type,
+      title,
+      slug,
+    }
+  `);
+}
+
 export async function getPostsPreview(): Promise<PostsPreview> {
   const data = await cms.fetch<Array<PostPreview>>(`
     *[ _type == "post" && visible == true ] | order(_createdAt asc) {
